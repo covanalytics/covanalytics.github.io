@@ -15,81 +15,8 @@
       <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/post/2022-08-22-testing-new-post/</guid>
       <description>Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
-The graph below shows where most registrations have occurred.
-Figure 1: Registrations by VenueCovington Connect is a collaborative effort involving the City of Covington, Cincinnati Bell, the Housing Authority of Covington (HAC), Covington Independent Public Schools, Renaissance Covington, local computer firms Blair Technology Group and ReGadget, and Comp-U-Dopt, a Houston-based non-profit organization.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>https://covanalytics.github.io/post/2020-12-01-r-rmarkdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (covanalytics)</author>
-      <guid>https://covanalytics.github.io/post/2020-12-01-r-rmarkdown/</guid>
-      <description>par(mar = c(0, 1, 0, 1))pie(c(280, 60, 20),c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),init.angle = -50, border = NA)Figure 1: A fancy pie chart.</description>
-    </item>
-    
-    <item>
-      <title>Photoswipe Gallery Sample</title>
-      <link>https://covanalytics.github.io/post/2017-03-20-photoswipe-gallery-sample/</link>
-      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (covanalytics)</author>
-      <guid>https://covanalytics.github.io/post/2017-03-20-photoswipe-gallery-sample/</guid>
-      <description>&lt;p&gt;Beautiful Hugo adds a few custom shortcodes created by &lt;a href=&#34;https://www.liwen.id.au/heg/&#34;&gt;Li-Wen Yip&lt;/a&gt; and &lt;a href=&#34;https://github.com/GjjvdBurg/HugoPhotoSwipe&#34;&gt;Gert-Jan van den Berg&lt;/a&gt; for making galleries with &lt;a href=&#34;http://photoswipe.com&#34;&gt;PhotoSwipe&lt;/a&gt; .&lt;/p&gt;
-
-
-
-&lt;div class=&#34;gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
-	  
-  
-  &lt;link rel=&#34;stylesheet&#34; href=&#34;https://covanalytics.github.io/css/hugo-easy-gallery.css&#34; /&gt;
-  &lt;div class=&#34;box&#34; &gt;
-    &lt;figure  itemprop=&#34;associatedMedia&#34; itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
-      &lt;div class=&#34;img&#34; style=&#34;background-image: url(&#39;https://covanalytics.github.io//img/hexagon-thumb.jpg&#39;);&#34;&gt;
-        &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://covanalytics.github.io/img/hexagon-thumb.jpg&#34; alt=&#34;/img/hexagon-thumb.jpg&#34;/&gt;
-      &lt;/div&gt;
-      &lt;a href=&#34;https://covanalytics.github.io/img/hexagon.jpg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;
-
-  
-  
-  &lt;div class=&#34;box&#34; &gt;
-    &lt;figure  itemprop=&#34;associatedMedia&#34; itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
-      &lt;div class=&#34;img&#34; style=&#34;background-image: url(&#39;https://covanalytics.github.io//img/sphere-thumb.jpg&#39;);&#34;&gt;
-        &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://covanalytics.github.io/img/sphere-thumb.jpg&#34; alt=&#34;Sphere&#34;/&gt;
-      &lt;/div&gt;
-      &lt;a href=&#34;https://covanalytics.github.io/img/sphere.jpg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-        &lt;figcaption&gt;
-            &lt;p&gt;Sphere&lt;/p&gt;
-        &lt;/figcaption&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;
-
-  
-  
-  &lt;div class=&#34;box&#34; &gt;
-    &lt;figure  itemprop=&#34;associatedMedia&#34; itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
-      &lt;div class=&#34;img&#34; style=&#34;background-image: url(&#39;https://covanalytics.github.io//img/triangle-thumb.jpg&#39;);&#34;&gt;
-        &lt;img itemprop=&#34;thumbnail&#34; src=&#34;https://covanalytics.github.io/img/triangle-thumb.jpg&#34; alt=&#34;This is a long comment about a triangle&#34;/&gt;
-      &lt;/div&gt;
-      &lt;a href=&#34;https://covanalytics.github.io/img/triangle.jpg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;
-        &lt;figcaption&gt;
-            &lt;p&gt;Triangle&lt;/p&gt;
-        &lt;/figcaption&gt;
-    &lt;/figure&gt;
-  &lt;/div&gt;
-
-
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Big Image Sample</title>
-      <link>https://covanalytics.github.io/post/2017-03-07-bigimg-sample/</link>
-      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (covanalytics)</author>
-      <guid>https://covanalytics.github.io/post/2017-03-07-bigimg-sample/</guid>
-      <description>&lt;p&gt;The image banners at the top of the page are refered to as &amp;ldquo;bigimg&amp;rdquo; in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.&lt;/p&gt;</description>
+Covington Connect is a collaborative effort involving the City of Covington, Cincinnati Bell, the Housing Authority of Covington (HAC), Covington Independent Public Schools, Renaissance Covington, local computer firms Blair Technology Group and ReGadget, and Comp-U-Dopt, a Houston-based non-profit organization.
+Phase I of the project began in 2018 with setting up 22 Wi-Fi hotspots that created zones of connectivity in the downtown area.</description>
     </item>
     
   </channel>

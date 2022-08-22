@@ -13,8 +13,13 @@ image: ''
 ---
 Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
 
-The graph below shows where most registrations have occurred.
+Covington Connect is a collaborative effort involving the City of Covington, Cincinnati Bell, the Housing Authority of Covington (HAC), Covington Independent Public Schools, Renaissance Covington, local computer firms Blair Technology Group and ReGadget, and Comp-U-Dopt, a Houston-based non-profit organization.
 
+**Phase I** of the project began in 2018 with setting up 22 Wi-Fi hotspots that created zones of connectivity in the downtown area.
+
+**Phase II** of the project began in September 2020, and added 124 Wi-Fi hotspots. These are concentrated in neighborhoods where the most Covington students live. 
+
+The graph below shows where registrations on the Wi-Fi network have occurred.
 
 ```{r setup, include=FALSE, echo = FALSE}
 library("tidyverse")
@@ -52,11 +57,7 @@ venue_reg %>%
         plot.title = element_text(hjust = 0.5, size = 12, color = "black"))
 
 ```
-Covington Connect is a collaborative effort involving the City of Covington, Cincinnati Bell, the Housing Authority of Covington (HAC), Covington Independent Public Schools, Renaissance Covington, local computer firms Blair Technology Group and ReGadget, and Comp-U-Dopt, a Houston-based non-profit organization.
 
-**Phase I** of the project began in 2018 with setting up 22 Wi-Fi hotspots that created zones of connectivity in the downtown area.
-
-**Phase II** of the project began in September 2020, and added 124 Wi-Fi hotspots. These are concentrated in neighborhoods where the most Covington students live – Eastside, Helentown, Austinburg, Peaselburg, Lewisburg, Latonia, and West Covington. 
 
 
 Go to the [Covington Connect](https://www.covingtonky.gov/government/covington-connect) page on the City's website for more information.\
