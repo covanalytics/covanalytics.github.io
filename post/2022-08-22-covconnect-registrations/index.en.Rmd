@@ -31,7 +31,7 @@ load(file = "U:/CityWide Performance/CovStat/CovStat Projects/WiFi_Cov_Connect/v
 
 ```
 
-```{r eval=TRUE,fig.height=5, fig.asp=0.7, fig.cap="Registrations by Venue"}
+```{r eval=TRUE, fig.cap="Registrations by Venue"}
 
  #Venue Registrations
 
