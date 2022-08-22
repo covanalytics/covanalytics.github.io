@@ -9,11 +9,20 @@
     <webMaster>youremail@domain.com (covanalytics)</webMaster>
     <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>example</title>
-      <link>https://covanalytics.github.io/tags/example/</link>
+      <title>CovConnect</title>
+      <link>https://covanalytics.github.io/tags/covconnect/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (covanalytics)</author>
-      <guid>https://covanalytics.github.io/tags/example/</guid>
+      <guid>https://covanalytics.github.io/tags/covconnect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wi-Fi</title>
+      <link>https://covanalytics.github.io/tags/wi-fi/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (covanalytics)</author>
+      <guid>https://covanalytics.github.io/tags/wi-fi/</guid>
       <description></description>
     </item>
     
@@ -41,6 +50,15 @@
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>example</title>
+      <link>https://covanalytics.github.io/tags/example/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (covanalytics)</author>
+      <guid>https://covanalytics.github.io/tags/example/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wi-Fi on CovData Stories</title>
+    <link>https://covanalytics.github.io/tags/wi-fi/</link>
+    <description>Recent content in Wi-Fi on CovData Stories</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
+    <webMaster>youremail@domain.com (covanalytics)</webMaster>
+    <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/wi-fi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CovConnect Registrations</title>
+      <link>https://covanalytics.github.io/post/2022-08-22-testing-new-post/</link>
+      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (covanalytics)</author>
+      <guid>https://covanalytics.github.io/post/2022-08-22-testing-new-post/</guid>
+      <description>Figure 1: Phase II Registrations by Venue</description>
+    </item>
+    
+  </channel>
+</rss>

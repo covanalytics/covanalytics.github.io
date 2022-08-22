@@ -1,12 +1,49 @@
 ---
-title: Testing New Post
+title: 'CovConnect Registrations'
 author: ''
 date: '2022-08-22'
 slug: []
 categories: []
 tags:
-  - example
+  - CovConnect
+  - Wi-Fi
 type: ''
-subtitle: ''
+subtitle: 'As of July, 2022'
 image: ''
 ---
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("lubridate")
+library("plotly")
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+load(file = "U:/CityWide Performance/CovStat/CovStat Projects/WiFi_Cov_Connect/venue_registrations.RData", .GlobalEnv)
+
+```
+
+```{r eval=TRUE, fig.cap="Phase II Registrations by Venue"}
+
+ #Venue Registrations
+
+venue_reg %>%
+  mutate_at(vars(Timestamp), list(as.character))%>%
+  group_by(Venues)%>%
+  summarise(Registrations = sum(Registrations))%>%
+  mutate(Pct. = round(Registrations/ sum(Registrations)*100, 1))%>%
+
+  ggplot(aes(x=Venues, y = Registrations, fill = Venues))+
+  geom_bar(stat = 'identity')+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 10000), )+
+  coord_flip()+
+  geom_text(aes(label = paste(scales::comma(Registrations, accuracy = 1.0), " ", "(", Pct., "%", ")",sep = "")),hjust = -0.1,  size = 2.9)+
+  theme_bw()+
+  #coord_flip()+
+  xlab("Registrations")+
+  theme(legend.position = "none",
+        legend.title = element_blank(), 
+        axis.title = element_blank(),
+        axis.text = element_text(size = 9),
+        strip.text = element_text(size = 8),
+        plot.title = element_text(hjust = 0.5, size = 12, color = "black"))
+
+```
