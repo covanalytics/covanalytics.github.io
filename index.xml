@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CovData Stories</title>
+    <title>CovData Shorts</title>
     <link>https://covanalytics.github.io/</link>
-    <description>Recent content on CovData Stories</description>
+    <description>Recent content on CovData Shorts</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
     <webMaster>youremail@domain.com (covanalytics)</webMaster>
@@ -14,7 +14,9 @@
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/post/2022-08-22-testing-new-post/</guid>
-      <description>Figure 1: Phase II Registrations by Venue</description>
+      <description>Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
+The graph below shows where most registrations have occurred.
+Figure 1: Registrations by VenueCovington Connect is a collaborative effort involving the City of Covington, Cincinnati Bell, the Housing Authority of Covington (HAC), Covington Independent Public Schools, Renaissance Covington, local computer firms Blair Technology Group and ReGadget, and Comp-U-Dopt, a Houston-based non-profit organization.</description>
     </item>
     
     <item>
