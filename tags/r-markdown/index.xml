@@ -5,14 +5,14 @@
     <link>https://covanalytics.github.io/tags/r-markdown/</link>
     <description>Recent content in R Markdown on CovData Stories</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Some Person)</managingEditor>
-    <webMaster>youremail@domain.com (Some Person)</webMaster>
+    <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
+    <webMaster>youremail@domain.com (covanalytics)</webMaster>
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello R Markdown</title>
       <link>https://covanalytics.github.io/post/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/post/2020-12-01-r-rmarkdown/</guid>
       <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:

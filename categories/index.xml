@@ -5,14 +5,14 @@
     <link>https://covanalytics.github.io/categories/</link>
     <description>Recent content in Categories on CovData Stories</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Some Person)</managingEditor>
-    <webMaster>youremail@domain.com (Some Person)</webMaster>
+    <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
+    <webMaster>youremail@domain.com (covanalytics)</webMaster>
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://covanalytics.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R</title>
       <link>https://covanalytics.github.io/categories/r/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/categories/r/</guid>
       <description></description>
     </item>

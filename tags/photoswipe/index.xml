@@ -5,14 +5,14 @@
     <link>https://covanalytics.github.io/tags/photoswipe/</link>
     <description>Recent content in photoswipe on CovData Stories</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Some Person)</managingEditor>
-    <webMaster>youremail@domain.com (Some Person)</webMaster>
+    <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
+    <webMaster>youremail@domain.com (covanalytics)</webMaster>
     <lastBuildDate>Mon, 20 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/photoswipe/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Photoswipe Gallery Sample</title>
       <link>https://covanalytics.github.io/post/2017-03-20-photoswipe-gallery-sample/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/post/2017-03-20-photoswipe-gallery-sample/</guid>
       <description>&lt;p&gt;Beautiful Hugo adds a few custom shortcodes created by &lt;a href=&#34;https://www.liwen.id.au/heg/&#34;&gt;Li-Wen Yip&lt;/a&gt; and &lt;a href=&#34;https://github.com/GjjvdBurg/HugoPhotoSwipe&#34;&gt;Gert-Jan van den Berg&lt;/a&gt; for making galleries with &lt;a href=&#34;http://photoswipe.com&#34;&gt;PhotoSwipe&lt;/a&gt; .&lt;/p&gt;
 

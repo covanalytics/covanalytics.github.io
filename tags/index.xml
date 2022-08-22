@@ -5,14 +5,14 @@
     <link>https://covanalytics.github.io/tags/</link>
     <description>Recent content in Tags on CovData Stories</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Some Person)</managingEditor>
-    <webMaster>youremail@domain.com (Some Person)</webMaster>
+    <managingEditor>youremail@domain.com (covanalytics)</managingEditor>
+    <webMaster>youremail@domain.com (covanalytics)</webMaster>
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>plot</title>
       <link>https://covanalytics.github.io/tags/plot/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/plot/</guid>
       <description></description>
     </item>
@@ -21,7 +21,7 @@
       <title>R Markdown</title>
       <link>https://covanalytics.github.io/tags/r-markdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/r-markdown/</guid>
       <description></description>
     </item>
@@ -30,7 +30,7 @@
       <title>regression</title>
       <link>https://covanalytics.github.io/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/regression/</guid>
       <description></description>
     </item>
@@ -39,7 +39,7 @@
       <title>example</title>
       <link>https://covanalytics.github.io/tags/example/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/example/</guid>
       <description></description>
     </item>
@@ -48,7 +48,7 @@
       <title>photoswipe</title>
       <link>https://covanalytics.github.io/tags/photoswipe/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/photoswipe/</guid>
       <description></description>
     </item>
@@ -57,35 +57,8 @@
       <title>bigimg</title>
       <link>https://covanalytics.github.io/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
+      <author>youremail@domain.com (covanalytics)</author>
       <guid>https://covanalytics.github.io/tags/bigimg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>math</title>
-      <link>https://covanalytics.github.io/tags/math/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
-      <guid>https://covanalytics.github.io/tags/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>code</title>
-      <link>https://covanalytics.github.io/tags/code/</link>
-      <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
-      <guid>https://covanalytics.github.io/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>https://covanalytics.github.io/tags/markdown/</link>
-      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
-      <guid>https://covanalytics.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
