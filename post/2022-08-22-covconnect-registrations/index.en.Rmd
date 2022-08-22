@@ -52,8 +52,8 @@ venue_reg %>%
   theme(legend.position = "none",
         legend.title = element_blank(), 
         axis.title = element_blank(),
-        axis.text = element_text(size = 9),
-        strip.text = element_text(size = 8),
+        axis.text = element_text(size = 10),
+        strip.text = element_text(size = 9),
         plot.title = element_text(hjust = 0.5, size = 12, color = "black"))
 
 ```
