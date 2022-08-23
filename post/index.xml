@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov (covanalytics)</managingEditor>
     <webMaster>covanalytics@covingtonky.gov (covanalytics)</webMaster>
-    <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>test</title>
+      <link>https://covanalytics.github.io/post/2022-08-23-test/</link>
+      <pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov (covanalytics)</author>
+      <guid>https://covanalytics.github.io/post/2022-08-23-test/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CovConnect Registrations</title>
       <link>https://covanalytics.github.io/post/2022-08-22-covconnect-registrations/</link>
