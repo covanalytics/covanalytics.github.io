@@ -9,7 +9,7 @@ tags:
   - Finance
 type: ''
 subtitle: 'Residential/Commerical Property'
-image: 'img/taxable-additions.jpg'
+image: 'img/taxable_additions.jpg'
  
   
 
@@ -67,7 +67,7 @@ taxable_additions_plot <- taxable_additions %>%
         plot.caption = element_text(hjust = 0, face = "italic", size = 10),
         text = element_text(size = 13))
 
-#ggsave("taxable_additions.png", taxable_additions_plot, width = 1320, height = 800, units = "px", dpi = 120)
+ggsave("taxable_additions.jpg", taxable_additions_plot, width = 1400, height = 600, units = "px", dpi = 120)
 
 
 taxable_additions_plot
