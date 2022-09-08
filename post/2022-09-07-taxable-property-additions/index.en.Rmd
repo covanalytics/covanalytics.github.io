@@ -9,7 +9,7 @@ tags:
   - Finance
 type: ''
 subtitle: 'Residential/Commerical Property'
-image: 'post/2022-09-07-taxable-property-additions/taxable_additions.jpg'
+image: 'img/taxable_additions.png'
 ---
 
 Each year the City of Covington receives a tax assessment report from the Kenton County Property Value Administrator that determines the taxable value of real property in the City, specifically for the purpose of levying and collecting tax money that is used to support the community.  Included in the report is a record of taxable additions to property.  The additions, basically, represent economic investment through the development of new property or through the enhancement of existing property.
