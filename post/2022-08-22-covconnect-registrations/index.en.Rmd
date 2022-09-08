@@ -9,7 +9,7 @@ tags:
   - Wi-Fi
 type: ''
 subtitle: 'As of July, 2022'
-image: 'covconnect_registrations.jpg'
+image: 'img/covconnect_registrations.jpg'
 ---
 Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
 
