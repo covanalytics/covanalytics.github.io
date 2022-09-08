@@ -9,12 +9,13 @@ tags:
   - Finance
 type: ''
 subtitle: 'Residential/Commerical Property'
-image: ''
+image: 'post/2022-09-07-taxable-property-additions/taxable_additions.jpg'
 ---
 
 Each year the City of Covington receives a tax assessment report from the Kenton County Property Value Administrator that determines the taxable value of real property in the City, specifically for the purpose of levying and collecting tax money that is used to support the community.  Included in the report is a record of taxable additions to property.  The additions, basically, represent economic investment through the development of new property or through the enhancement of existing property.
 
 The graph shows the taxable value of additions to residential and commercial property in Covington over the period 2016-2022.
+
 
 ```{r setup, include=FALSE, echo = FALSE}
 library("tidyverse")
@@ -43,7 +44,7 @@ covdata_comprss <- function(tx, label = FALSE) {
 
 # value taxable additions
 
-taxable_additions %>%
+taxable_additions_plot <- taxable_additions %>%
   mutate_at(vars(Year), list(as.character))%>%
   mutate(Value = covdata_comprss(Additions, label = TRUE))%>%
   
@@ -63,4 +64,8 @@ taxable_additions %>%
         plot.caption = element_text(hjust = 0, face = "italic", size = 10),
         text = element_text(size = 13))
 
+#ggsave("taxable_additions.png", taxable_additions_plot, width = 1320, height = 800, units = "px", dpi = 120)
+
+
+taxable_additions_plot
 ```

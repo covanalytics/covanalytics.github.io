@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on CovData Shorts</title>
-    <link>https://covanalytics.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on CovData Shorts</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>covanalytics@covingtonky.gov (covanalytics)</managingEditor>
-    <webMaster>covanalytics@covingtonky.gov (covanalytics)</webMaster>
-    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://covanalytics.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>covanalytics@covingtonky.gov</managingEditor>
+    <webMaster>covanalytics@covingtonky.gov</webMaster>
+    <lastBuildDate>Wed, 07 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Development</title>
-      <link>https://covanalytics.github.io/tags/development/</link>
+      <link>/tags/development/</link>
       <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov (covanalytics)</author>
-      <guid>https://covanalytics.github.io/tags/development/</guid>
+      <author>covanalytics@covingtonky.gov</author>
+      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Finance</title>
-      <link>https://covanalytics.github.io/tags/finance/</link>
+      <link>/tags/finance/</link>
       <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov (covanalytics)</author>
-      <guid>https://covanalytics.github.io/tags/finance/</guid>
+      <author>covanalytics@covingtonky.gov</author>
+      <guid>/tags/finance/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CovConnect</title>
-      <link>https://covanalytics.github.io/tags/covconnect/</link>
+      <link>/tags/covconnect/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov (covanalytics)</author>
-      <guid>https://covanalytics.github.io/tags/covconnect/</guid>
+      <author>covanalytics@covingtonky.gov</author>
+      <guid>/tags/covconnect/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wi-Fi</title>
-      <link>https://covanalytics.github.io/tags/wi-fi/</link>
+      <link>/tags/wi-fi/</link>
       <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov (covanalytics)</author>
-      <guid>https://covanalytics.github.io/tags/wi-fi/</guid>
+      <author>covanalytics@covingtonky.gov</author>
+      <guid>/tags/wi-fi/</guid>
       <description></description>
     </item>
     

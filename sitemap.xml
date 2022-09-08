@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://covanalytics.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/tags/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/tags/finance/</loc>
+    <loc>/tags/finance/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/post/2022-09-07-taxable-property-additions/</loc>
+    <loc>/post/2022-09-07-taxable-property-additions/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/tags/covconnect/</loc>
+    <loc>/tags/covconnect/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/post/2022-08-22-covconnect-registrations/</loc>
+    <loc>/post/2022-08-22-covconnect-registrations/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/tags/wi-fi/</loc>
+    <loc>/tags/wi-fi/</loc>
     <lastmod>2022-08-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://covanalytics.github.io/categories/</loc>
+    <loc>/categories/</loc>
   </url><url>
-    <loc>https://covanalytics.github.io/page/about/</loc>
+    <loc>/page/about/</loc>
   </url><url>
-    <loc>https://covanalytics.github.io/page/</loc>
+    <loc>/page/</loc>
   </url>
 </urlset>
