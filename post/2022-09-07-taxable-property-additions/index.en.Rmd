@@ -68,4 +68,5 @@ ggsave("taxable-additions.jpg", taxable_additions_plot, width = 800, height = 40
 
 
 taxable_additions_plot
+
 ```
