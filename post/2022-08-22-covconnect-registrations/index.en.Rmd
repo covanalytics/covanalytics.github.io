@@ -35,7 +35,7 @@ load(file = "U:/CityWide Performance/CovStat/CovStat Projects/WiFi_Cov_Connect/v
 
  #Venue Registrations
 
-venue_reg %>%
+venue_reg_plot <- venue_reg %>%
   mutate_at(vars(Timestamp), list(as.character))%>%
   group_by(Venues)%>%
   summarise(Registrations = sum(Registrations))%>%
@@ -56,6 +56,12 @@ venue_reg %>%
         #axis.text = element_text(size = 10),
         #strip.text = element_text(size = 9),
         #plot.title = element_text(hjust = 0.5, size = 12, color = "black"))
+
+
+ggsave("covconnect_registrations.jpg", venue_reg_plot, width = 800, height = 450, units = "px", dpi = 120)
+
+
+venue_reg_plot
 
 ```
 
