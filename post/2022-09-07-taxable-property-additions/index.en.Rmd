@@ -50,7 +50,7 @@ taxable_additions_plot <- taxable_additions %>%
   
   ggplot(aes(x=Year, y = Additions, fill = Property))+
   geom_bar(stat = 'identity', position = "dodge")+
-  scale_y_continuous(label=scales::label_number_si())+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 60000000))+
   facet_wrap(~Property)+
   theme_bw()+
   scale_fill_manual(values = c("#b20000", "#b2b200" ))+
@@ -64,7 +64,7 @@ taxable_additions_plot <- taxable_additions %>%
         plot.caption = element_text(hjust = 0, face = "italic", size = 10),
         text = element_text(size = 13))
 
-ggsave("taxable_additions.jpg", taxable_additions_plot, width = 800, height = 550, units = "px", dpi = 120)
+ggsave("taxable_additions.jpg", taxable_additions_plot, width = 800, height = 400, units = "px", dpi = 120)
 
 
 taxable_additions_plot
