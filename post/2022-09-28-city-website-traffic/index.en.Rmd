@@ -50,7 +50,7 @@ state_city_plot <- ggplot(state_map, aes(long, lat, group = group))+
         axis.ticks = element_blank(),
         text = element_text(size = 12))
 
-ggsave("state_city_mobile.jpg", state_city_plot, width = 950, height = 500, units = "px", dpi = 120)
+ggsave("state_city_mobile.jpg", state_city_plot, width = 700, height = 500, units = "px", dpi = 120)
 
 state_city_plot
 
