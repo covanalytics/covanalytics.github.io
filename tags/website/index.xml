@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website on CovData Shorts</title>
+    <link>/tags/website/</link>
+    <description>Recent content in Website on CovData Shorts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
+    <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
+    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>City Website Traffic</title>
+      <link>/post/2022-09-28-city-website-traffic/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/post/2022-09-28-city-website-traffic/</guid>
+      <description>The website for the City of Covington is visited by people from all over the United States, and world. With the help of Google Analytics, the City is able to monitor all of the website pages and gain insights into visitor activity, such as the number of visitors, most viewed pages, device types, and much more.
+In Figure 1, for example, we can see where returning visits to the City of Covington website on a mobile device originated by state and city in the last 100 days.</description>
+    </item>
+    
+  </channel>
+</rss>

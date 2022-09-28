@@ -1,0 +1,89 @@
+---
+title: "City Website Traffic"
+author: ''
+date: '2022-09-28'
+slug: []
+categories: []
+tags: 
+  - Website
+type: ''
+subtitle: 'Returning Visits on Mobile Device'
+image: 'img/state_city_mobile.jpg'
+---
+
+The website for the [City of Covington](https://www.covingtonky.gov/) is visited by people from all over the United States, and world.  With the help of [Google Analytics](https://analytics.withgoogle.com/), the City is able to monitor all of the website pages and gain insights into visitor activity, such as the number of visitors, most viewed pages, device types, and much more.
+
+In Figure 1, for example, we can see where returning visits to the City of Covington website on a mobile device originated by state and city in the last 100 days.  Clearly, the majority of these visits originated in the Eastern United states, particularly in Ohio and Kentucky.
+
+
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("ggpubr")
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+state_map <- readRDS("state_return_mobile_100days.RDS")
+city_return_mobile <- readRDS("city_return_mobile_100days.RDS")
+top3_mobile_return <- readRDS("top3_mobile_return.RDS")
+
+
+```
+
+
+```{r eval=TRUE, fig.cap="Returning Mobile Visitors"}
+
+### Create plot with state and city returning visitors using mobile
+### last 100 days
+state_city_plot <- ggplot(state_map, aes(long, lat, group = group))+
+  geom_polygon(aes(fill = users), color = "black")+
+  scale_fill_continuous(low = "lightblue", 
+                        high = "darkblue",limits = c(0,3000))+
+  geom_point(city_return_mobile, mapping=aes(x=lon, y=lat, size = users),  pch=21,
+             colour = "black", fill = "red", alpha = 0.6, inherit.aes = FALSE) +
+  labs(fill = "Visitors (state)", size = "Visitors (city)")+
+  
+  labs(title="Returning City Website Visitors Using Mobile Device",
+       subtitle = "Last 100 Days") +
+  theme_bw()+
+  theme(legend.position = "bottom",
+        axis.title = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        text = element_text(size = 12))
+
+ggsave("state_city_mobile.jpg", state_city_plot, width = 950, height = 500, units = "px", dpi = 120)
+
+state_city_plot
+
+```
+
+
+The majority of the returning website visits on a mobile device originated in Cincinnati OH, New York NY, and Covington KY.  Figure 2 shows the popularity of the mobile device brands used for these visits.  Apple was the most popular brand, followed by Samsung and Motorola. 
+
+
+```{r eval=TRUE, fig.cap="Popularity of Mobile Brands"}
+
+top3_mobile_return <- readRDS("top3_mobile_return.RDS")
+
+
+top3_devicebrand <- ggballoonplot(top3_mobile_return, x = "city", y = "mobileDeviceBranding",
+              size = "Users", fill = "Users")+
+  scale_fill_viridis_c(option = "C", limits = c(0,1500), name = "Visitors")+
+  guides(size = "none")+
+  theme_bw() +
+  labs(title="Mobile Device Brands of Returning Visitors",
+       subtitle = "Top 3 Cities")+
+  theme(axis.title =element_blank(),
+        text = element_text(size = 13))
+
+
+ggsave("top3cities_devicebrand.jpg", top3_devicebrand, width = 700, height = 500, units = "px", dpi = 120)
+
+top3_devicebrand
+
+```
+
+
+
+
+
+
