@@ -29,6 +29,7 @@ top3_mobile_return <- readRDS("top3_mobile_return.RDS")
 ```
 
 
+
 ```{r eval=TRUE, fig.cap="Returning Mobile Visitors"}
 
 ### Create plot with state and city returning visitors using mobile
@@ -47,10 +48,9 @@ state_city_plot <- ggplot(state_map, aes(long, lat, group = group))+
   theme(legend.position = "bottom",
         axis.title = element_blank(),
         axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        text = element_text(size = 12))
+        axis.ticks = element_blank())
 
-ggsave("state_city_mobile.jpg", state_city_plot, width = 650, height = 500, units = "px", dpi = 120)
+ggsave("state_city_mobile.jpg", state_city_plot, width = 700, height = 600, units = "px", dpi = 120)
 
 state_city_plot
 
