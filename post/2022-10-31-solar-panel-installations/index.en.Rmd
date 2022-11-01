@@ -88,7 +88,7 @@ solar_plot_val <- solar_places %>%
 solar_panel_plot <- ggarrange(solar_plot_cnt,
           solar_plot_val, ncol = 1, nrow = 2)
 
-ggsave("solar_panels.jpg", solar_panel_plot, width = 600, height = 500, units = "px", dpi = 120)
+#ggsave("solar_panels.jpg", solar_panel_plot, width = 600, height = 450, units = "px", dpi = 120)
 
 solar_panel_plot
 
@@ -149,7 +149,7 @@ solar_change <- solar_places %>%
         text = element_text(size = 13),
         plot.subtitle = element_markdown())
 
-ggsave("solar_change.jpg", solar_change, width = 600, height = 550, units = "px", dpi = 120)
+ggsave("solar_change.jpg", solar_change, width = 600, height = 500, units = "px", dpi = 120)
 
 solar_change
 
