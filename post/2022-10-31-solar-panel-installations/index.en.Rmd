@@ -1,0 +1,159 @@
+---
+title: Solar Panel Installations
+author: ''
+date: '2022-11-01'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: 'As of October, 2022'
+image: 'img/solar_change.jpg'
+---
+
+The [Planning and Development Services of Kenton County](https://www.pdskc.org/) (PDS) provides the City of Covington with data containing details on every building permit issued in Covington, including the type of work planned for a property and how much the work is expected to cost.  Figure 1 shows that the installation of solar panels is a particular property enhancement that has become increasingly popular in recent years.  In the last two years alone, interest in solar panels has jumped considerably, with owners of 74 properties in Covington completing the necessary paperwork to have solar panels installed---work valued at an estimated $1.6 million.
+
+
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("ggpubr")
+library("ggalt")
+library("ggtext")
+library("lubridate")
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+  #Function to abbreviate dollar amounts and add symbol
+  covdata_comprss <- function(tx, label = FALSE) { 
+    div <- findInterval(as.numeric(gsub("\\,", "", tx)), 
+                        c(0, 1e3, 1e6, 1e9, 1e12) )  # modify this if negative numbers are possible
+    if(label){
+      paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 0), 
+            c("","K","M","B","T")[div], sep = "" )
+    }
+    else{
+      paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 1), 
+            c("","K","M","B","T")[div], sep = "" )}
+  }
+
+
+solar <- readRDS("solar.RDS")
+
+
+```
+
+
+
+
+```{r eval=TRUE, fig.cap="Solar Panel Installations"}
+
+solar_places <- solar %>%
+  mutate(Year = as.character(year(ymd(IssuedDate))))%>%
+  group_by(Address)%>%
+  filter(row_number()==1)%>%
+  ungroup()
+
+solar_plot_cnt <- solar_places %>%
+  group_by(Year)%>%
+  summarise_at(c("Count", "Value"), sum)%>%
+
+ggplot(aes(x=Year, y = Count))+
+  geom_bar(stat = 'identity', position = "dodge", fill = '#999999')+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0,70))+
+  theme_bw()+
+  geom_text(aes(label = Count), vjust=-0.5, size = 3.5)+
+  labs(title = "Solar Panel Installations", 
+       subtitle = "Count") +
+  
+  theme(axis.title = element_blank(),
+        text = element_text(size = 13))
+
+solar_plot_val <- solar_places %>%
+  group_by(Year)%>%
+  summarise_at(c("Count", "Value"), sum)%>%
+  mutate(Value_ = covdata_comprss(Value, label = TRUE))%>%
+  
+  ggplot(aes(x=Year, y = Value))+
+  geom_bar(stat = 'identity', position = "dodge", fill = '#E69F00')+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 1500000))+
+  theme_bw()+
+  geom_text(aes(label = Value_), vjust=-0.5, size = 3.5)+
+  labs(subtitle = "Estimated Value of Work",
+       caption = paste("Source: PDS", "*Based on properties that were issued permits", sep = "\n"))+
+  
+  theme(axis.title = element_blank(),
+        plot.caption = element_text(hjust = 0, face = "italic", size = 10),
+        text = element_text(size = 13))
+  
+
+solar_panel_plot <- ggarrange(solar_plot_cnt,
+          solar_plot_val, ncol = 1, nrow = 2)
+
+ggsave("solar_panels.jpg", solar_panel_plot, width = 600, height = 500, units = "px", dpi = 120)
+
+solar_panel_plot
+
+```
+
+
+Figure 2 shows the neighborhoods where there has been growing interest to install solar panels in Covington.  The greatest growth in interest, clearly, has been in South Covington, where the number of properties that received permits for solar panel installations grew from 1 property during the five year period of 2016-2020 to 33 properties in the last two years.   
+
+
+
+```{r eval=TRUE, fig.cap="Solar Panel Installations by Neighborhood"}
+
+
+### Growth in solar panel installations
+## By neighborhood
+solar_change <- solar_places %>%
+  select(Neighborhood, Year, Count, Value)%>%
+  pivot_wider(
+    names_from = Year,
+    values_from = c(Count),
+    id_cols = Neighborhood,
+    values_fn = sum,
+    values_fill = 0)%>%
+  mutate(`2016-2020` = rowSums(across(2:`2020`)),
+         `2021-2022` = rowSums(across(`2021`:`2022`)),
+         Neighborhood = fct_reorder(Neighborhood, `2021-2022`))%>%
+  select(1, `2016-2020`, `2021-2022`)%>%
+  pivot_longer(!Neighborhood,
+               names_to = "Period",
+               values_to = "Count") %>%
+  
+  ggplot(aes(x = Count, y = Neighborhood, color = Period))+
+  geom_line(color="#cccccc", size = 2, show.legend = FALSE)+
+  geom_point(size = 2.5, show.legend = TRUE, ) +
+  scale_color_manual(values = c('#5a5a5a', '#E69F00'))+
+  scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25, 30, 35), limits = c(0, 35))+
+  xlab("Count")+
+  theme_linedraw()+
+  
+  labs(
+    title = "Solar Panel Installations",
+    #subtitle = "Count of Properties Permitted",
+    caption = paste("Source: PDS", "*Based on properties that were issued permits", sep = "\n"))+
+    #subtitle = "<span style='color:#5a5a5a'>2016-2020</span> VS
+    #<span style='color:#E69F00'>2021-2022</span>") +
+  theme(panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(),
+        axis.ticks = element_blank(),
+        panel.border = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title = element_text(size = 11),
+        legend.position = "top",
+        legend.justification='left',
+        legend.direction='horizontal',
+        legend.title = element_blank(),
+        plot.caption = element_text(hjust = 0, face = "italic", size = 10),
+        text = element_text(size = 13),
+        plot.subtitle = element_markdown())
+
+ggsave("solar_change.jpg", solar_change, width = 600, height = 550, units = "px", dpi = 120)
+
+solar_change
+
+```
+
+
+
