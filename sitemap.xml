@@ -3,18 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-12-09-current-revenues-and-expenses/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/finance/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/development/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/post/2022-10-31-solar-panel-installations/</loc>
-    <lastmod>2022-11-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2022-09-28-city-website-traffic/</loc>
@@ -22,9 +28,6 @@
   </url><url>
     <loc>/tags/website/</loc>
     <lastmod>2022-09-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/finance/</loc>
-    <lastmod>2022-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2022-09-07-taxable-property-additions/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>

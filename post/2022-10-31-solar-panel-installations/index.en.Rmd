@@ -149,7 +149,7 @@ solar_change <- solar_places %>%
         text = element_text(size = 13),
         plot.subtitle = element_markdown())
 
-ggsave("solar_change.jpg", solar_change, width = 600, height = 500, units = "px", dpi = 120)
+#ggsave("solar_change.jpg", solar_change, width = 600, height = 500, units = "px", dpi = 120)
 
 solar_change
 

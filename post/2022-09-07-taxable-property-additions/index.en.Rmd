@@ -41,6 +41,7 @@ covdata_comprss <- function(tx, label = FALSE) {
 
 ```
 
+
 ```{r eval=TRUE}
 
 # value taxable additions
