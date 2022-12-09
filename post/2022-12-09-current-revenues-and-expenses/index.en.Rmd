@@ -7,7 +7,7 @@ categories: []
 tags:
   - Finance
 type: ''
-subtitle: 'Annual Comprehensive Financial Report'
+subtitle: 'Annual Comprehensive Financial Report, 2004-2021'
 image: 'img/revenue-expenses.jpg'
 ---
 
@@ -71,7 +71,7 @@ ggplot(aes(x=`Fiscal Year`, y = Amount, fill = Type, label = Amount_))+
   scale_y_continuous(label=scales::label_number_si(),
                      expand = expansion(mult = c(0, .1)))+
   geom_text(aes(label=Value),vjust=-0.5, position = position_dodge(0.9), size = 2.3)+
-  labs(subtitle = "Current Revenues & Expenses", caption = "Source: Covington Finance Department\nDebt service and capital outlay not included")+
+  labs(subtitle = "Current Revenues & Expenses by Fiscal Year", caption = "Source: Covington Finance Department\nDebt service and capital outlay not included")+
   
   
   theme(legend.position = "right",
