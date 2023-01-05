@@ -1,0 +1,106 @@
+---
+title: Special Event Permits
+author: ''
+date: '2023-01-05'
+slug: []
+categories: []
+tags:
+  - Administration
+type: ''
+subtitle: 'Approved Events, 2022'
+image: 'img/seps_graph.png'
+---
+
+Any event (i.e. festival, concert, run/walk, art show, etc.) that uses, or will likely have a large impact on public or City-owned property, such as streets or parks, requires a [Special Event Permit Application](https://www.covingtonky.gov/Portals/covingtonky/Government/Departments/Administration/City%20Manager's%20Office/Special%20Event%20Permit/Documents/2023%20Special%20Event%20Permit%20Application_FILLABLE.pdf?ver=ez2s7d1-IV_MgBw16wBbKQ%3d%3d).  This is information that the City of Covington requires to ensure that everything goes smoothly and safely with the event.
+
+Some events, naturally, last longer than others.  *What kind of world would this be if we only have one day to enjoy the Rockin Taco Fest.*  The graph below shows the number of special event permits that were issued for single day events and multiple day events in the year 2022.  
+
+```{r setup, include=FALSE, echo = FALSE}
+
+library("tidyverse")
+library("lubridate")
+library(ggpubr)
+library(knitr)
+library(magick)
+library(showtext)
+library(extrafont)
+library(scales)
+library(png)
+library(cowplot)
+library(grid)
+theme_set(theme_pubr())
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+#Function to abbreviate dollar amounts and add symbol
+covdata_comprss <- function(tx, label = FALSE) { 
+      div <- findInterval(as.numeric(gsub("\\,", "", tx)), 
+         c(0, 1e3, 1e6, 1e9, 1e12) )  # modify this if negative numbers are possible
+      if(label){
+        paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 0), 
+           c("","K","M","B","T")[div], sep = "" )
+      }
+      else{
+        paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 1), 
+           c("","K","M","B","T")[div], sep = "" )}
+      }
+
+
+source("covdata_graphics.r")
+
+
+#Load Audited Revenues and Expenses from ACFRs
+seps <- readRDS("seps.rds")
+
+seps_ <- seps %>%
+  filter(`Event Type` != "CANCELED")%>%
+  count(`Single/Multi`, name = "Count")%>%
+  rename("Day Length"= "Single/Multi")%>%
+  mutate(Percent = round(Count/sum(Count)*100, 0))
+
+
+```
+
+
+
+
+```{r eval=TRUE, fig.width = 5, fig.height = 4}
+
+# Current revenue / expenses plot
+
+seps_plot <- seps_ %>%
+  
+  
+  
+  
+ggplot(aes(x=`Day Length`, y = Count, fill = `Day Length`))+
+  geom_bar(stat = 'identity', position = "dodge", show.legend = FALSE)+
+  
+  #specifying labels  
+  labs(x = "Day Length", 
+       y = "Permits\n", 
+       title = "Special Event Permits",
+       subtitle = "Single / Multiple Day Events",
+       caption = "Administration\nCity of Covington\n2022 | CovData") +
+  scale_y_continuous(limits = c(0,100),
+                     expand = expansion(mult = c(0, .1)))+
+  geom_text(aes(label = paste(scales::comma(Count, accuracy = 1.0), " ", "(", Percent, "%", ")",sep = "")),vjust=-0.5,  size = 3.5)+
+  covdata_fill_d("Pantones")+
+
+  covdata_theme()
+
+
+  
+sep_permit_plot <- covdata_finalize(seps_plot, logo = COV.Seal.Logo.Blue, footer_shade = TRUE, save_name = "seps")
+  
+  
+sep_permit_plot
+
+
+
+```
+
+
+
+
+
+
