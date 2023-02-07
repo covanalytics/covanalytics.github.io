@@ -1,0 +1,158 @@
+---
+title: U.S. Recessions and Covington
+author: ''
+date: '2023-02-07'
+slug: []
+categories: []
+tags:
+  - Development
+  - Administration
+type: ''
+subtitle: 'Covington Unemployment Rate: 1990-2022'
+image: 'img/cov_unemp.png'
+---
+
+There have been four economic recessions in the United States since the early 1990s.  A recession is a significant, widespread, and prolonged downturn in economic activity, and is typically identified by two consecutive quarters of negative gross domestic product (GDP) growth.^[https://www.investopedia.com/terms/r/recession.asp]  One of the most noticeable effects of a recession is a rise in unemployment, which usually peaks long after the recession has begun and can last well into recovery.^[https://www.investopedia.com/ask/answers/032515/why-does-unemployment-tend-rise-during-recession.asp] Below is a brief description of the four recessions and the unemployment rate in Covington through these periods.  *Attention is not given to the underlying causes of each recession.*
+
+*   **Early 1990s:** Lasted eight months from July, 1990 - March, 1991. The unemployment rate hovered around 4 percent in the early 1990s prior to the recession, rising to 6 percent at the end of the recession, and peaked at nearly 9 percent over a year later.
+
+*   **Early 2000s:** Lasted eight months from March, 2001 - November, 2001.  In Covington, the rise in the unemployment rate was not as steep as during the early 1990s, with unemployment remaining between 5-6 percent during most of the 2000s. 
+
+*   **Great Recession:** Lasted one year and six months from December 2007 - June 2009.   Unemployment in Covington increased dramatically over the recession period, rising from 5 percent in December, 2007 to 11.8 percent in June, 2009. Eight months  later in February, 2010 unemployment peaked at 12. 5 percent.
+
+*   **COVID-19:** Lasted two months from February, 2020 - April, 2020.  The recession was short, but the effect on employment was quick and severe.  Nationwide, more than 24 million people lost their jobs in April 2020 ^[https://www.nytimes.com/2020/04/09/business/economy/unemployment-claim-numbers-coronavirus.html].  In Kenton County, KY (Covington is within Kenton County) unemployment insurance claims rose from 67 to 2,683 over the month of March, 2020.^[https://kystats.ky.gov/KYLMI/UnemploymentClaimsData]  Consequently, unemployment in Covington was at 15.6 percent by April, 2020.  As of December, 2023 unemployment in Covington is 3.4 percent.
+
+The graph below displays the above four recession periods and the unemployment rate in Covington since 1990.
+
+ 
+
+```{r setup, include=FALSE, echo = FALSE}
+
+library(tidyverse)
+library(lubridate)
+library(ggpubr)
+library(knitr)
+library(magick)
+library(showtext)
+library(extrafont)
+library(scales)
+library(png)
+library(cowplot)
+library(grid)
+theme_set(theme_pubr())
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+
+source("covdata_graphics.r")
+
+#Load Data
+unmp_rate <- readRDS("unmp_rate.rds")
+
+unmp_rate <- unmp_rate %>%
+  filter(Value <= 20 & Group != "Kenton Co." & Group != "Kentucky")%>%#removes rows that are not percents with decimal
+  transmute(Date = lubridate::ym(Label), Rate = Value, Group = Group)%>%
+  mutate(Date = format(strptime(Date, 
+                                format='%Y-%m-%d'), '%Y-%m'))
+
+```
+
+
+
+
+```{r eval=TRUE}
+
+
+#specifying labels  
+plot_labels <-  labs(x = "Month/Year", 
+       y = "Incentives\n", 
+       title = "U.S. Recessions and Covington",
+       subtitle = "Covington Unemployment Rate: 1990-2022\n",
+       caption = "Administration\nCity of Covington\nSource: BLS | CovData | 2023")
+  
+
+#unemployment rate by month and year
+unemployment_plot <- unmp_rate %>%
+  mutate_at(vars(Date), list(ym))%>%
+  mutate(`M-Y` = format(Date, "%m-%Y"))%>%
+  ggplot(aes(x=Date, y=Rate, label = `M-Y`))+
+  geom_rect(aes(xmin = ym("1990-07"), xmax = ym("1991-03"), 
+                ymin = -Inf, ymax = Inf), alpha = 0.01, fill = "#00c1de", colour = NA)+
+  geom_rect(aes(xmin = ym("2001-03"), xmax = ym("2001-11"), 
+                ymin = -Inf, ymax = Inf), alpha = 0.01, fill = "#00c1de", colour = NA)+
+  geom_rect(aes(xmin = ym("2007-12"), xmax = ym("2009-06"), 
+                ymin = -Inf, ymax = Inf), alpha = 0.01, fill = "#00c1de", colour = NA)+
+  geom_rect(aes(xmin = ym("2020-02"), xmax = ym("2020-04"), 
+                ymin = -Inf, ymax = Inf), alpha = 0.01, fill = "#00c1de", colour = NA)+
+  geom_label(aes(x = ym("1991-06"), y = 14, label = "Early 1990s"), 
+             hjust = 0, 
+             vjust = 0.5, 
+             lineheight = 0.8,
+             colour = "black", 
+             fill = "#cccccc", 
+             label.size = NA, 
+             family="Franklin Gothic Medium", 
+             size = 3) +
+  geom_curve(aes(x = ym("1994-06"), y = 13, xend = ym("1991-04"), yend = 12), 
+                           colour = "#555555", 
+                           curvature = -0.3,
+                           size=0.5,
+                          arrow = arrow(length = unit(0.03, "npc")))+
+   geom_label(aes(x = ym("1996-06"), y = 10, label = "Early 2000s"), 
+             hjust = 0, 
+             vjust = 0.5, 
+             lineheight = 0.8,
+             colour = "black", 
+             fill = "#cccccc", 
+             label.size = NA, 
+             family="Franklin Gothic Medium", 
+             size = 3) +
+  geom_curve(aes(x = ym("1999-06"), y = 9, xend = ym("2000-12"), yend = 8), 
+                           colour = "#555555", 
+                           curvature = 0.2,
+                           size=0.5,
+                          arrow = arrow(length = unit(0.03, "npc")))+
+   geom_label(aes(x = ym("2002-09"), y = 12, label = "Great\nRecession"), 
+             hjust = 0, 
+             vjust = 0.5, 
+             lineheight = 0.8,
+             colour = "black", 
+             fill = "#cccccc", 
+             label.size = NA, 
+             family="Franklin Gothic Medium", 
+             size = 3) +
+  geom_curve(aes(x = ym("2005-06"), y = 11, xend = ym("2007-06"), yend = 9), 
+                           colour = "#555555", 
+                           curvature = 0.2,
+                           size=0.5,
+                          arrow = arrow(length = unit(0.03, "npc")))+
+  geom_label(aes(x = ym("2015-01"), y = 14, label = "COVID-19"), 
+             hjust = 0, 
+             vjust = 0.5, 
+             lineheight = 0.8,
+             colour = "black", 
+             fill = "#cccccc", 
+             label.size = NA, 
+             family="Franklin Gothic Medium", 
+             size = 3) +
+  geom_curve(aes(x = ym("2017-01"), y = 13, xend = ym("2020-01"), yend = 12), 
+                           colour = "#555555", 
+                           curvature = 0.2,
+                           size=0.5,
+                          arrow = arrow(length = unit(0.03, "npc")))+
+  #geom_area(fill = "red")+
+  geom_line(lwd = 0.8) + 
+  #geom_point(size = 1) +
+  scale_x_date(breaks = seq(ym("1990-01"), ym("2022-12"), by = "10 years"), date_labels = "%Y" )+
+  plot_labels+
+ 
+  covdata_theme(panel.background.fill = "covington.plain")
+
+covdata_plot(unemployment_plot, "cov.logo.blue")
+  
+
+  
+  
+
+
+
+```
