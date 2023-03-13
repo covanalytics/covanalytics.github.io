@@ -18,7 +18,9 @@ In a [previous post](https://covanalytics.github.io/post/2022-08-22-covconnect-r
 
 A download pulls data from the internet to the users computer (watching a video; opening a webpage, etc.) and an upload takes data from the users computer and puts it on the internet (sending an email; uploading a homework assignment, etc.)
 
-The graph below shows these data trends in Terabytes (TB), a large unit of digital data.  Since December 2020, 125.62 TB of data has been transferred (donwloads and uploads) over the Covington Connect Wi-Fi system.  For a point of reference, is has been estimated that 10 TB could hold the entire printed collection of the U.S. Library of Congress, while a single TB could hold 1,000 copies of the Encyclopedia Brittanica.^[https://www.teradata.com/Glossary/What-is-a-Terabyte]
+The graph below shows these data trends in Terabytes (TB), a large unit of digital data.  Since December 2020, 125.62 TB of data has been transferred (donwloads and uploads) over the Covington Connect Wi-Fi system. Student users have downloaded 50.51 TB and uploaded 4.41 TB.  Non-student users have downloaded 64.39 TB and uploaded 6.31 TB. 
+
+For a point of reference, is has been estimated that 10 TB could hold the entire printed collection of the U.S. Library of Congress, while a single TB could hold 1,000 copies of the Encyclopedia Brittanica.^[https://www.teradata.com/Glossary/What-is-a-Terabyte]
 
 
 ```{r setup, include=FALSE, echo = FALSE}
