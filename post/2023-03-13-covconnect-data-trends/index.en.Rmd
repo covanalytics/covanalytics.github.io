@@ -1,0 +1,68 @@
+---
+title: CovConnect Data Trends
+author: ''
+date: '2023-03-13'
+slug: []
+categories: []
+tags:
+  - CovConnect
+  - Wi-Fi
+type: ''
+subtitle: 'Dec. 2020 - March 2023'
+image: 'img/cov_data_trends.png'
+---
+
+Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
+
+In a [previous post](https://covanalytics.github.io/post/2022-08-22-covconnect-registrations/), we outlined the purpose, partners, and phases of the Covington Connect project.  This post briefly looks at the data trends of Wi-Fi users, specifically how much data has been downloaded and uploaded by student and non-student users since December 2020.
+
+A download pulls data from the internet to the users computer (watching a video; opening a webpage, etc.) and an upload takes data from the users computer and puts it on the internet (sending an email; uploading a homework assignment, etc.)
+
+The graph below shows these data trends in Terabytes (TB), a large unit of digital data.  Since December 2020, 125.62 TB of data has been transferred (donwloads and uploads) over the Covington Connect Wi-Fi system.  For a point of reference, is has been estimated that 10 TB could hold the entire printed collection of the U.S. Library of Congress, while a single TB could hold 1,000 copies of the Encyclopedia Brittanica.^[https://www.teradata.com/Glossary/What-is-a-Terabyte]
+
+
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+
+
+
+dt_cvcnt <- read_excel("U:/data_downloads_uploads.xlsx", col_names = TRUE)%>%
+  as.data.frame()
+
+```
+
+```{r eval=TRUE, echo = FALSE}
+labels <- labs(x = "Data Trend", 
+               y = "Type\n", 
+               title = "Covington Connect Wi-Fi",
+               subtitle = "Data Trends Among Users (Dec. 2020 - March 2023)\n",
+               caption = "Administration\nCity of Covington\n2023 | CovData")
+
+
+dt_plot <- dt_cvcnt %>%
+
+  ggplot(aes(x = Type, y = Data, fill = Type))+
+  geom_bar(stat = 'identity', position = "dodge", show.legend = FALSE) +
+  covdata_fill_d("Pantones")+
+  scale_y_continuous(limits = c(0,100),
+                     expand = expansion(mult = c(0, .1)))+
+  geom_text(aes(label=Label) ,hjust = 0.5, vjust = -1.0,  size = 3.0)+
+  facet_wrap(~ User)+
+  
+  labels +
+  covdata_theme()
+          
+
+covdata_plot(dt_plot, "cov.logo.blue", save_name = "cov_data_trends")
+
+```
+
+
+
+Go to the [Covington Connect](https://www.covingtonky.gov/government/covington-connect) page on the City's website for more information.\

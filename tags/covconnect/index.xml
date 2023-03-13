@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
     <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
-    <lastBuildDate>Mon, 22 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/covconnect/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/covconnect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CovConnect Data Trends</title>
+      <link>/post/2023-03-13-covconnect-data-trends/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/post/2023-03-13-covconnect-data-trends/</guid>
+      <description>Covington Connect is an aggressive effort to smash the digital divide in Covington by expanding access to free public Wi-Fi throughout much of the City.
+In a previous post, we outlined the purpose, partners, and phases of the Covington Connect project. This post briefly looks at the data trends of Wi-Fi users, specifically how much data has been downloaded and uploaded by student and non-student users since December 2020.</description>
+    </item>
+    
     <item>
       <title>CovConnect Registrations</title>
       <link>/post/2022-08-22-covconnect-registrations/</link>

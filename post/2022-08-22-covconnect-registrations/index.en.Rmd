@@ -17,7 +17,7 @@ Covington Connect is a collaborative effort involving the City of Covington, Cin
 
 **Phase I** of the project began in 2018 with setting up 22 Wi-Fi hotspots that created zones of connectivity in the downtown area.
 
-**Phase II** of the project began in September 2020, and added 124 Wi-Fi hotspots. These are concentrated in neighborhoods where the most Covington students live. 
+**Phase II** of the project began in December 2020, and added 124 Wi-Fi hotspots. These are concentrated in neighborhoods where the most Covington students live. 
 
 The graph below shows where registrations on the Wi-Fi network have occurred.
 

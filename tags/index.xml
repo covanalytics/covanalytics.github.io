@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
     <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
-    <lastBuildDate>Tue, 07 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CovConnect</title>
+      <link>/tags/covconnect/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/tags/covconnect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wi-Fi</title>
+      <link>/tags/wi-fi/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/tags/wi-fi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Administration</title>
       <link>/tags/administration/</link>
@@ -41,24 +59,6 @@
       <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
       <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
       <guid>/tags/website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CovConnect</title>
-      <link>/tags/covconnect/</link>
-      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
-      <guid>/tags/covconnect/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Wi-Fi</title>
-      <link>/tags/wi-fi/</link>
-      <pubDate>Mon, 22 Aug 2022 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
-      <guid>/tags/wi-fi/</guid>
       <description></description>
     </item>
     
