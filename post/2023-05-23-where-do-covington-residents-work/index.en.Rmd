@@ -48,7 +48,7 @@ The heat map below displays the distribution of jobs held by Covington residents
 It is clear from the map that downtown Cincinnati and Covington are the primary employment centers for Covington residents.  There are several other notable employment centers in Northern Kentucky, including the Cincinnati/Northern Kentucky International Airport.  
 
 
-```{r eval=TRUE, echo = FALSE, message = FALSE, fig.width=6 , fig.height=6}
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.width=8 , fig.height=8}
 
 labels <- labs(x = "", 
                y = "", 
