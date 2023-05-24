@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
     <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
-    <lastBuildDate>Mon, 13 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development</title>
+      <link>/tags/development/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/tags/development/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CovConnect</title>
       <link>/tags/covconnect/</link>
@@ -32,15 +41,6 @@
       <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
       <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
       <guid>/tags/administration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>/tags/development/</link>
-      <pubDate>Tue, 07 Feb 2023 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
-      <guid>/tags/development/</guid>
       <description></description>
     </item>
     

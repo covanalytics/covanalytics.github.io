@@ -1,0 +1,122 @@
+---
+title: Where Do Covington Residents Work?
+author: ''
+date: '2023-05-23'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: 'Longitudinal Employer-Household Dynamics Data'
+image: 'img/cov_resident_employment.png'
+---
+
+The Longitudinal Employer-Household Dynamics (LEHD) program is part of the Center for Economic Studies at the U.S. Census Bureau. The LEHD program produces cost effective, public-use information combining federal, state and Census Bureau data on employers and employees under the Local Employment Dynamics (LED) Partnership. State and local authorities increasingly need detailed local information about their economies to make informed decisions. The LED Partnership works to fill critical data gaps and provide indicators needed by state and local authorities.
+
+Under the LED Partnership, states agree to share Unemployment Insurance earnings data and the Quarterly Census of Employment and Wages (QCEW) data with the Census Bureau. The LEHD program combines these administrative data, additional administrative data and data from censuses and surveys. From these data, the program creates statistics on employment, earnings, and job flows at detailed levels of geography and industry and for different demographic groups. In addition, the LEHD program uses these data to create partially synthetic data on workers' residential patterns.^[https://lehd.ces.census.gov/]
+
+This post looks briefly at **where Covington residents work** within the [Cincinnati-Wilmington-Maysville Combined Statistical Area (CSA)](https://www2.census.gov/geo/maps/econ/ec2012/csa/EC2012_330M200US178M.pdf) using the most recent [LEHD Origin-Destination Employment Statistics (LODES)](https://lehd.ces.census.gov/data/#lodes) dataset for the year 2020. This dataset links home and work locations at the census block-level, making it easy to answer questions about where people work and where workers live. 
+
+
+
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+
+work_points <- readRDS("cov_residents_work_places_map_boundary.rds")
+work_surface <- readRDS("cov_resident_work_surface_kernal.rds")
+work_places <- readRDS("work_places_within_cincy_csa.rds")
+cincy_csa <- readRDS("cincy_csa.rds")
+city_boundary <- readRDS("city_boundary.rds")
+
+```
+
+
+## Top 10 Places of Employment
+
+Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
+
+```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
+
+plot_labels <-  labs(x = "Jobs", 
+                     y = "Jobs", 
+                     title = "Top 10 Places Where Covington Residents Work",
+                     subtitle = "Places Within Cincinnati CSA: 2020\n",
+                     caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
+
+
+covres_work_places <- work_places %>%
+  mutate(Pct. = round(s000/sum(s000)*100, 2))%>%
+  slice_max(n = 10, order_by = Pct.) %>%
+
+  ggplot(aes(x= fct_reorder(NAME, Pct.), y = Pct., fill = Pct.))+
+  geom_bar(stat = 'identity', show.legend = FALSE)+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 25),
+                     expand = expansion(mult = c(0, .1)))+
+  covdata_fill_c("RdBu", reverse = TRUE)+
+  coord_flip()+
+  geom_text(aes(label = paste(scales::comma(s000, accuracy = 1.0), " ", "(", Pct., "%", ")",sep = "")),hjust = -0.1,  size = 3.1,family= "Franklin Gothic Book")+
+  plot_labels +
+  covdata_theme(panel.background.fill = "covington.light.gray")
+
+          
+
+covdata_plot(covres_work_places, "cov.logo.blue")
+
+```
+
+## Heat Map of Employment
+
+The heat map below displays the distribution of jobs held by Covington residents within the Cincinnati-Wilmington-Maysville CSA. The City of Covington boundary is shown in black for reference.   The heat map can be intererpeted as follows from red to blue: 
+
+* red = higher concentration of jobs
+* blue = lower concentration of jobs 
+
+It is clear from the map that downtown Cincinnati and Covington are the primary employment centers for Covington residents.  There are several other notable employment centers in Northern Kentucky, including the Cincinnati/Northern Kentucky International Airport.  
+
+
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.width=6 , fig.height=6}
+
+labels <- labs(x = "", 
+               y = "", 
+               title = "Where Covington Residents Work",
+               subtitle = "Heat Map of Cincinnati CSA Employment Centers, 2020\n",
+               caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
+
+
+
+covres_work_map <- cincy_csa +
+  geom_sf(data = work_surface, aes(fill = ContourMax), lwd = NA, alpha = 0.6,  inherit.aes = FALSE, 
+                           show.legend = FALSE) +
+  covdata_fill_c("RdBu", reverse = TRUE) +
+  geom_sf(data = city_boundary, fill = NA, lwd = 0.1, color = "black", inherit.aes = FALSE)+
+  labels +
+  xlab("")
+  #covdata_theme() 
+  
+#  theme(axis.text = element_blank(),
+#        axis.ticks = element_blank(),
+#        axis.title = element_blank(),
+#        plot.caption = element_text(margin = margin(t=0,b=15, r=-0.7),vjust = 15, hjust = 1, size = 9),
+#        plot.margin = margin(t = 0.2, r = 0.2, b = 0, l = 0.2, unit = "cm"))
+     
+logo <- magick::image_read("cov.logo.BLUEtm.png")
+
+covres_work_map
+grid::grid.raster(logo, x = 0.15, y = 0.01, just = c('left', 'bottom'), width = unit(1.4, 'inches'))
+
+
+
+```
+
+
+
+
+
