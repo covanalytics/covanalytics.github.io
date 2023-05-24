@@ -38,40 +38,6 @@ city_boundary <- readRDS("city_boundary.rds")
 
 ```
 
-
-## Top 10 Places of Employment
-
-Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
-
-```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
-
-plot_labels <-  labs(x = "Jobs", 
-                     y = "Jobs", 
-                     title = "Top 10 Places Where Covington Residents Work",
-                     subtitle = "Places Within Cincinnati CSA: 2020\n",
-                     caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
-
-
-covres_work_places <- work_places %>%
-  mutate(Pct. = round(s000/sum(s000)*100, 2))%>%
-  slice_max(n = 10, order_by = Pct.) %>%
-
-  ggplot(aes(x= fct_reorder(NAME, Pct.), y = Pct., fill = Pct.))+
-  geom_bar(stat = 'identity', show.legend = FALSE)+
-  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 25),
-                     expand = expansion(mult = c(0, .1)))+
-  covdata_fill_c("RdBu", reverse = TRUE)+
-  coord_flip()+
-  geom_text(aes(label = paste(scales::comma(s000, accuracy = 1.0), " ", "(", Pct., "%", ")",sep = "")),hjust = -0.1,  size = 3.1,family= "Franklin Gothic Book")+
-  plot_labels +
-  covdata_theme(panel.background.fill = "covington.light.gray")
-
-          
-
-covdata_plot(covres_work_places, "cov.logo.blue")
-
-```
-
 ## Heat Map of Employment
 
 The heat map below displays the distribution of jobs held by Covington residents within the Cincinnati-Wilmington-Maysville CSA. The City of Covington boundary is shown in black for reference.   The heat map can be intererpeted as follows from red to blue: 
@@ -113,6 +79,41 @@ covres_work_map
 grid::grid.raster(logo, x = 0.15, y = 0.01, just = c('left', 'bottom'), width = unit(1.4, 'inches'))
 
 
+
+```
+
+
+
+## Top 10 Places of Employment
+
+Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
+
+```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
+
+plot_labels <-  labs(x = "Jobs", 
+                     y = "Jobs", 
+                     title = "Top 10 Places Where Covington Residents Work",
+                     subtitle = "Places Within Cincinnati CSA: 2020\n",
+                     caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
+
+
+covres_work_places <- work_places %>%
+  mutate(Pct. = round(s000/sum(s000)*100, 2))%>%
+  slice_max(n = 10, order_by = Pct.) %>%
+
+  ggplot(aes(x= fct_reorder(NAME, Pct.), y = Pct., fill = Pct.))+
+  geom_bar(stat = 'identity', show.legend = FALSE)+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 25),
+                     expand = expansion(mult = c(0, .1)))+
+  covdata_fill_c("RdBu", reverse = TRUE)+
+  coord_flip()+
+  geom_text(aes(label = paste(scales::comma(s000, accuracy = 1.0), " ", "(", Pct., "%", ")",sep = "")),hjust = -0.1,  size = 3.1,family= "Franklin Gothic Book")+
+  plot_labels +
+  covdata_theme(panel.background.fill = "covington.light.gray")
+
+          
+
+covdata_plot(covres_work_places, "cov.logo.blue")
 
 ```
 
