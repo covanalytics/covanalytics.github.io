@@ -86,7 +86,7 @@ grid::grid.raster(logo, x = 0.15, y = 0.01, just = c('left', 'bottom'), width = 
 
 ## Top 10 Places of Employment
 
-Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
+Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau where Covington residents worked in 2020.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
 
 ```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
 
