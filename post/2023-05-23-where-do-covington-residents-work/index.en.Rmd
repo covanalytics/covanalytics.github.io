@@ -8,7 +8,7 @@ tags:
   - Development
 type: ''
 subtitle: 'Longitudinal Employer-Household Dynamics Data'
-
+image: 'covres_jobs.png'
 ---
 
 The Longitudinal Employer-Household Dynamics (LEHD) program is part of the Center for Economic Studies at the U.S. Census Bureau. The LEHD program produces cost effective, public-use information combining federal, state and Census Bureau data on employers and employees under the Local Employment Dynamics (LED) Partnership. State and local authorities increasingly need detailed local information about their economies to make informed decisions. The LED Partnership works to fill critical data gaps and provide indicators needed by state and local authorities.
