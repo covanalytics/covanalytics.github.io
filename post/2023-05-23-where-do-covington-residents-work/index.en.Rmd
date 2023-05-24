@@ -76,7 +76,7 @@ covres_work_map <- cincy_csa +
 logo <- magick::image_read("cov.logo.BLUEtm.png")
 
 covres_work_map
-grid::grid.raster(logo, x = 0.15, y = 0.01, just = c('left', 'bottom'), width = unit(1.4, 'inches'))
+grid::grid.raster(logo, x = 0.13, y = 0.01, just = c('left', 'bottom'), width = unit(1.4, 'inches'))
 
 
 
