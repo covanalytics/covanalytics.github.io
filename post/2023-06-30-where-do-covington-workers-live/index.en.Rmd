@@ -12,7 +12,9 @@ image: 'img/covjobs_home.png'
 ---
 
 
-In a [previous post](https://covanalytics.github.io/post/2023-05-23-where-do-covington-residents-work/) we briefly looked at **where Covington residents work** within the [Cincinnati-Wilmington-Maysville Combined Statistical Area (CSA)](https://www2.census.gov/geo/maps/econ/ec2012/csa/EC2012_330M200US178M.pdf) using the most recent [LEHD Origin-Destination Employment Statistics (LODES)](https://lehd.ces.census.gov/data/#lodes) dataset for the year 2020. In this post, we look briefly at **where people working in Covington live**.  For details regarding the data used here, please see the previous post at the link above.
+In a [previous post](https://covanalytics.github.io/post/2023-05-23-where-do-covington-residents-work/) we briefly looked at **where Covington residents work** within the [Cincinnati-Wilmington-Maysville Combined Statistical Area (CSA)](https://www2.census.gov/geo/maps/econ/ec2012/csa/EC2012_330M200US178M.pdf) using the most recent [LEHD Origin-Destination Employment Statistics (LODES)](https://lehd.ces.census.gov/data/#lodes) dataset for the year 2020. 
+
+In this post, we look briefly at **where people working in Covington live**.  For details regarding the data used here, please see the previous post at the link above.
 
 
 
@@ -34,6 +36,8 @@ cincy_csa <- readRDS("cincy_csa.rds")
 city_boundary <- readRDS("city_boundary.rds")
 
 ```
+
+
 
 ## Heat Map of Home Locations
 
