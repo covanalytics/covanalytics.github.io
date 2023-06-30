@@ -46,7 +46,7 @@ The heat map below displays the distribution of home locations for people workin
 * red = higher concentration of people working in Covington
 * blue = lower concentration of people working in Covington
 
-It is clear from the map that downtown Covington is the primary home location for people employed in Covington.  There are several other notable home locations in Northern Kentucky and Ohio.  
+It is clear from the map that Covington is the primary home location for people employed in Covington.  There are several other notable home locations in Northern Kentucky and Ohio.  
 
 
 ```{r eval=TRUE, echo = FALSE, message = FALSE, fig.width=8 , fig.height=8}
