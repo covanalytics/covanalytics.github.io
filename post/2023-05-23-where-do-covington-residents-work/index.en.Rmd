@@ -89,8 +89,8 @@ Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://ww
 
 ```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
 
-plot_labels <-  labs(x = "Jobs", 
-                     y = "Jobs", 
+plot_labels <-  labs(x = "Jobs (%)", 
+                     y = "Jobs (%)", 
                      title = "Top 10 Places Where Covington Residents Work",
                      subtitle = "Places Within Cincinnati CSA: 2020\n",
                      caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
