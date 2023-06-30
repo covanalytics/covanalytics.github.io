@@ -1,0 +1,117 @@
+---
+title: Where Do Covington Workers Live?
+author: ''
+date: '2023-06-30'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: 'Longitudinal Employer-Household Dynamics Data'
+image: 'img/covjobs_home.png'
+---
+
+
+In a [previous post](https://covanalytics.github.io/post/2023-05-23-where-do-covington-residents-work/) we briefly looked at **where Covington residents work** within the [Cincinnati-Wilmington-Maysville Combined Statistical Area (CSA)](https://www2.census.gov/geo/maps/econ/ec2012/csa/EC2012_330M200US178M.pdf) using the most recent [LEHD Origin-Destination Employment Statistics (LODES)](https://lehd.ces.census.gov/data/#lodes) dataset for the year 2020. In this post, we look briefly at **where people working in Covington live**.  For details regarding the data used here, please see the previous post at the link above.
+
+
+
+```{r setup, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+
+work_points <- readRDS("cov_worker_home_places_map_boundary.rds")
+work_surface <- readRDS("cov_workers_home_surface_kernal.rds")
+work_places <- readRDS("home_places_within_cincy_csa.rds")
+cincy_csa <- readRDS("cincy_csa.rds")
+city_boundary <- readRDS("city_boundary.rds")
+
+```
+
+## Heat Map of Home Locations
+
+The heat map below displays the distribution of home locations for people working in Covington within the Cincinnati-Wilmington-Maysville CSA. The City of Covington boundary is shown in black for reference.   The heat map can be interpreted as follows from red to blue: 
+
+* red = higher concentration of people working in Covington
+* blue = lower concentration of people working in Covington
+
+It is clear from the map that downtown Covington is the primary home location for people employed in Covington.  There are several other notable home locations in Northern Kentucky and Ohio.  
+
+
+```{r eval=TRUE, echo = FALSE, message = FALSE, fig.width=8 , fig.height=8}
+
+labels <- labs(x = "", 
+               y = "", 
+               title = "Where People Working in Covington Live",
+               subtitle = "Heat Map of CSA Home Locations of Covington Workers, 2020\n",
+               caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
+
+
+
+covres_work_map <- cincy_csa +
+  geom_sf(data = work_surface, aes(fill = ContourMax), lwd = NA, alpha = 0.6,  inherit.aes = FALSE, 
+                           show.legend = FALSE) +
+  covdata_fill_c("RdBu", reverse = TRUE) +
+  geom_sf(data = city_boundary, fill = NA, lwd = 0.1, color = "black", inherit.aes = FALSE)+
+  labels +
+  xlab("")
+  #covdata_theme() 
+  
+#  theme(axis.text = element_blank(),
+#        axis.ticks = element_blank(),
+#        axis.title = element_blank(),
+#        plot.caption = element_text(margin = margin(t=0,b=15, r=-0.7),vjust = 15, hjust = 1, size = 9),
+#        plot.margin = margin(t = 0.2, r = 0.2, b = 0, l = 0.2, unit = "cm"))
+     
+logo <- magick::image_read("cov.logo.pride.png")
+
+covres_work_map
+grid::grid.raster(logo, x = 0.13, y = 0.01, just = c('left', 'bottom'), width = unit(1.4, 'inches'))
+
+
+
+```
+
+
+## Top 10 Home Locations
+
+Within the Cincinnati-Wilmington-Maysville CSA there are 201 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau where Covington workers lived in 2020.  These can be thought of as municipalities, cities, towns, villages, and boroughs. People living in these 201 Places accounted for 13,120 (71%) of the 18,378 jobs in Covington in 2020.  The top 10 Places of home residence for people who worked in Covington is displayed in the graph below.  Covington was the main Place of home residence for Covington workers with 16% of the jobs within the CSA, followed by Cincinnati (11%) and Independence (7%) in the top three. 
+
+```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
+
+plot_labels <-  labs(x = "Jobs", 
+                     y = "Jobs", 
+                     title = "Top 10 Places Where Covington Workers Live",
+                     subtitle = "Places Within Cincinnati CSA: 2020\n",
+                     caption = "Administration\nCity of Covington\nLEHD LODES | CovData | 2023")
+
+
+covres_work_places <- work_places %>%
+  mutate(Pct. = round(s000/sum(s000)*100, 2))%>%
+  slice_max(n = 10, order_by = Pct.) %>%
+
+  ggplot(aes(x= fct_reorder(NAME, Pct.), y = Pct., fill = Pct.))+
+  geom_bar(stat = 'identity', show.legend = FALSE)+
+  scale_y_continuous(label=scales::label_number_si(), limits = c(0, 25),
+                     expand = expansion(mult = c(0, .1)))+
+  covdata_fill_c("RdBu", reverse = TRUE)+
+  coord_flip()+
+  geom_text(aes(label = paste(scales::comma(s000, accuracy = 1.0), " ", "(", Pct., "%", ")",sep = "")),hjust = -0.1,  size = 3.1,family= "Franklin Gothic Book")+
+  plot_labels +
+  covdata_theme(panel.background.fill = "covington.light.gray")
+
+          
+
+covdata_plot(covres_work_places, "cov.logo.pride", save_name = "covjobs_home")
+
+```
+
+
+

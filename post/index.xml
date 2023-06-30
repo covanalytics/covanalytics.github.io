@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
     <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
-    <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Where Do Covington Workers Live?</title>
+      <link>/post/2023-06-30-where-do-covington-workers-live/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/post/2023-06-30-where-do-covington-workers-live/</guid>
+      <description>In a previous post we briefly looked at where Covington residents work within the Cincinnati-Wilmington-Maysville Combined Statistical Area (CSA) using the most recent LEHD Origin-Destination Employment Statistics (LODES) dataset for the year 2020. In this post, we look briefly at where people working in Covington live. For details regarding the data used here, please see the previous post at the link above.
+Heat Map of Home LocationsThe heat map below displays the distribution of home locations for people working in Covington within the Cincinnati-Wilmington-Maysville CSA.</description>
+    </item>
+    
     <item>
       <title>Where Do Covington Residents Work?</title>
       <link>/post/2023-05-23-where-do-covington-residents-work/</link>

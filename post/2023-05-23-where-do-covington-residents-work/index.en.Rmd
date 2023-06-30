@@ -40,7 +40,7 @@ city_boundary <- readRDS("city_boundary.rds")
 
 ## Heat Map of Employment
 
-The heat map below displays the distribution of jobs held by Covington residents within the Cincinnati-Wilmington-Maysville CSA. The City of Covington boundary is shown in black for reference.   The heat map can be intererpeted as follows from red to blue: 
+The heat map below displays the distribution of jobs held by Covington residents within the Cincinnati-Wilmington-Maysville CSA. The City of Covington boundary is shown in black for reference.   The heat map can be interpreted as follows from red to blue: 
 
 * red = higher concentration of jobs
 * blue = lower concentration of jobs 
