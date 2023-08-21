@@ -1,0 +1,184 @@
+---
+title: "Motorist Assists"
+author: ''
+date: '2023-08-21'
+slug: []
+categories: []
+tags:
+  - Police
+type: ''
+subtitle: 'January 2021 - July 2023'
+image: 'img/motorist_assists.png'
+---
+
+
+
+
+```{r setup, include=FALSE, echo = FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+
+
+city_boundary <- readRDS("city_boundary.rds")
+
+police_runs_graphs <- readRDS("police_runs_ma.rds")
+
+```
+
+
+Since 2017 the Covington Police Department has responded to an average of 54,241 service calls each year (as of July, 2023).  A small part of the service that the Covingotn Police provide is to respond when a person is in need of assistance in a motor vehicle--for example, if they are out of gas, stranded on the interstate, have a flat tire, or need a wrecker, etc.  From January 2021 to July 2023, the Covington Police responded to 2,887 calls for assistance by a motorist within the City of Covington.
+
+In this post we look at briefly at where and when motorists need assistance in Covington, particularly the Northern portion of the City.  
+
+The animation below shows the month-to-month location and magnitude (larger and brighther red dots equal more calls) of motorist assistance responses by the Covington Police. Instances with two dots displayed on the I-75 bridge indicate different call volumes for North and South directions on the Brent Spence Bridge. 
+
+![](motorist_assists.gif)
+
+# Time and Day of Week
+
+The heatmap below shows how often the Covington Police respond to motorist assistance calls by weekday and hour.  Weekday afternoons and early evenings appear to be when motorists need police assistance most often, especially on Fridays.
+
+
+```{r eval=TRUE, echo = FALSE, message = FALSE}
+
+plot_labels <-  labs(x = "Hour", 
+                     y = "", 
+                     title = "Motorist Assists by Covington Police",
+                     subtitle = "Counts by Weekday and Hour: January 2021 - July 2023",
+                     caption = "Police\nCity of Covington\n CovData | 2023")
+
+ pruns_heat<- police_runs_graphs %>%
+   count(Hour, Wkday,  name = "Assists")%>%
+   #filter(Roads %in% c("I-75 Bridge"))%>%
+   
+   ggplot(aes(Hour, Wkday))+
+   geom_tile(aes(fill = Assists), colour = "white")+
+   covdata_fill_c("YlOrRd")+
+   #scale_fill_gradient(low = "white", high = "red")
+   #facet_wrap(~Roads)
+   scale_x_discrete(breaks=c("12AM", "06AM", "12PM", "06PM", "11PM"))+
+   covdata_theme()+
+   plot_labels 
+ 
+ 
+covdata_plot(pruns_heat, "cov.logo.blue")
+
+
+
+```
+
+# Season
+
+James Taylor, a 2000 Rock and Roll Hall of Fame inductee might say: "Winter, Spring, Summer or Fall, all you have to do is call"...and the Covington Police Department will be there.  And motorists do call as they need assistance year round, but not as often in the Fall (i.e., September, October, November) as the graph below shows.
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=6}
+
+season_count <- police_runs_graphs %>%
+  count(Season)
+
+season_names <- list(
+  "Summer" = "Summer (n = 610)",
+  "Fall"   = "Fall (n = 388)",
+  "Winter" = "Winter (n = 640)",
+  "Spring" = "Spring (n = 618)")
+
+variable_labeller <- function(variable,value){
+  return(season_names[value])
+}
+
+plot_labels <-  labs(x = "Hour", 
+                     y = "", 
+                     title = "Motorist Assists by Covington Police",
+                     subtitle = "Seasonal Counts by Weekday and Hour: January 2021 - July 2023",
+                     caption = "Police\nCity of Covington\n CovData | 2023")
+
+
+pruns_heat_season <- police_runs_graphs %>%
+   count(Hour, Wkday, Season, name = "Assists")%>%
+   #filter(Wkday %in% c("Fri"))%>%
+   
+   ggplot(aes(Hour, Wkday))+
+   geom_tile(aes(fill = Assists), colour = "white")+
+   covdata_fill_c("YlOrRd")+
+   #scale_fill_gradient(low = "white", high = "red")
+   #facet_wrap(~Roads)
+   scale_x_discrete(breaks=c("04AM", "12PM", "08PM"))+
+   covdata_theme()+
+   plot_labels +
+   facet_wrap(~Season, labeller = variable_labeller)
+ 
+ 
+covdata_plot(pruns_heat_season, "cov.logo.blue")
+ 
+
+
+
+```
+
+# I-75 North/South: Brent Spence Bridge
+
+The Brent Spence Bridge carries Interstates 71 and 75 across the Ohio River.  The top deck carries south-bound lanes into Covington Kentucky and the bottom deck carries north-bound traffic into Cincinnati Ohio.  The graph below shows that since 2021 the Covington Police have responded more frequently to calls for assistance by motorists who are traveling North into Cincinnati.
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE}
+
+bridge_count <- police_runs_graphs %>%
+  filter(Roads %in% c("I-75 Bridge North", "I-75 Bridge South"))%>%
+  count(Roads)
+
+bridges_names <- list(
+  "I-75 Bridge North" = "I-75 Bridge North (n = 140)",
+  "I-75 Bridge South" = "I-75 Bridge South (n = 94)")
+
+variable_labeller_roads <- function(variable,value){
+  return(bridges_names[value])
+}
+
+
+plot_labels <-  labs(x = "Weekday", 
+                     y = "", 
+                     title = "Motorist Assists on I-75 Bridge by Covington Police",
+                     subtitle = "Weekday Counts: January 2021 - July 2023",
+                     caption = "Police\nCity of Covington\n CovData | 2023")
+
+
+pruns_heat_season <- police_runs_graphs %>%
+   filter(Roads %in% c("I-75 Bridge North", "I-75 Bridge South"))%>%
+   count(Wkday, Roads, name = "Assists")%>%
+   mutate(Wkday = fct_relevel(Wkday, "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"))%>%
+   
+
+   ggplot(aes(Wkday, Assists, fill = Assists))+
+   geom_bar(stat = 'identity', position = "dodge")+
+   covdata_fill_c("YlOrRd")+
+   scale_y_continuous(limits = c(0,30),
+                     expand = expansion(mult = c(0, .1)))+
+   geom_text(aes(label=Assists) ,hjust = 0.5, vjust = -1.0,  size = 3.0)+
+   #scale_fill_gradient(low = "white", high = "red")
+   #facet_wrap(~Roads)
+   
+   covdata_theme(panel.background.fill = "covington.light.gray")+
+   plot_labels +
+   facet_wrap(~Roads, labeller = variable_labeller_roads)
+ 
+ 
+covdata_plot(pruns_heat_season, "cov.logo.blue")
+ 
+
+
+
+```
+
+
+
+
+
