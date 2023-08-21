@@ -35,11 +35,11 @@ police_runs_graphs <- readRDS("police_runs_ma.rds")
 ```
 
 
-Since 2017 the Covington Police Department has responded to an average of 54,241 service calls each year (as of July, 2023).  A small part of the service that the Covingotn Police provide is to respond when a person is in need of assistance in a motor vehicle--for example, if they are out of gas, stranded on the interstate, have a flat tire, or need a wrecker, etc.  From January 2021 to July 2023, the Covington Police responded to 2,887 calls for assistance by a motorist within the City of Covington.
+Since 2017 the Covington Police Department has responded to an average of 54,241 service calls each year (as of July, 2023).  A small part of the service that the Covington Police provide is to respond when a person is in need of assistance in a motor vehicle--for example, if they are out of gas, stranded on the interstate, have a flat tire, or need a wrecker, etc.  From January 2021 to July 2023, the Covington Police responded to 2,887 calls for assistance by a motorist within the City of Covington.
 
 In this post we look at briefly at where and when motorists need assistance in Covington, particularly the Northern portion of the City.  
 
-The animation below shows the month-to-month location and magnitude (larger and brighther red dots equal more calls) of motorist assistance responses by the Covington Police. Instances with two dots displayed on the I-75 bridge indicate different call volumes for North and South directions on the Brent Spence Bridge. 
+The animation below shows the month-to-month location and magnitude (larger and brighter red dots equal more calls) of motorist assistance responses by the Covington Police. Instances with two dots displayed on the I-75 bridge indicate different call volumes for North and South directions on the Brent Spence Bridge. 
 
 ![](motorist_assists.gif)
 
