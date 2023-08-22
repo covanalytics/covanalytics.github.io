@@ -45,7 +45,7 @@ The animation below shows the month-to-month location and magnitude (larger and 
 
 # Time and Day of Week
 
-The heatmap below shows how often the Covington Police respond to motorist assistance calls by weekday and hour.  Weekday afternoons and early evenings appear to be when motorists need police assistance most often, especially on Fridays.
+The heatmap below shows how often the Covington Police respond to motorist assistance calls by day and hour.  The afternoon and early evening appears to be when motorists need police assistance most often, especially on Fridays.
 
 
 ```{r eval=TRUE, echo = FALSE, message = FALSE}
@@ -53,7 +53,7 @@ The heatmap below shows how often the Covington Police respond to motorist assis
 plot_labels <-  labs(x = "Hour", 
                      y = "", 
                      title = "Motorist Assists by Covington Police",
-                     subtitle = "Counts by Weekday and Hour: January 2021 - July 2023",
+                     subtitle = "Counts by Day and Hour: January 2021 - July 2023",
                      caption = "Police\nCity of Covington\n CovData | 2023")
 
  pruns_heat<- police_runs_graphs %>%
@@ -98,7 +98,7 @@ variable_labeller <- function(variable,value){
 plot_labels <-  labs(x = "Hour", 
                      y = "", 
                      title = "Motorist Assists by Covington Police",
-                     subtitle = "Seasonal Counts by Weekday and Hour: January 2021 - July 2023",
+                     subtitle = "Seasonal Counts by Day and Hour: January 2021 - July 2023",
                      caption = "Police\nCity of Covington\n CovData | 2023")
 
 
@@ -144,10 +144,10 @@ variable_labeller_roads <- function(variable,value){
 }
 
 
-plot_labels <-  labs(x = "Weekday", 
+plot_labels <-  labs(x = "Day", 
                      y = "", 
                      title = "Motorist Assists on I-75 Bridge by Covington Police",
-                     subtitle = "Weekday Counts: January 2021 - July 2023",
+                     subtitle = "Day Counts: January 2021 - July 2023",
                      caption = "Police\nCity of Covington\n CovData | 2023")
 
 
