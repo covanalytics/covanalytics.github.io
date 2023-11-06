@@ -162,7 +162,7 @@ covdata_plot(runs_moons_temp_facet, "cov.logo.blue", save_name = "moon_temp")
 
 # Temperature
 
-What is important on the days when there is a full moon, however, is the temperature.  The scatter plot below shows the relationship between the average number of police calls received each day (y-axis) and the daily maximum temperature (x-axis) during the four moon phases.  The blue line, which illustrates the relationship, shows that on warmer full-moon days the Covington Police tend to receive more calls for service.^[The R value of 0.58 displayed in the upper left corner of the graph tells us that there is a moderate association between calls for service and maximum daily temperature]
+What is important on the days when there is a full moon, however, is the temperature.  The scatter plot below shows the relationship between the average number of police calls received each day (y-axis) and the daily maximum temperature (x-axis) during the full moon phases.  The blue line, which illustrates the relationship, shows that on warmer full-moon days the Covington Police tend to receive more calls for service.^[The R value of 0.58 displayed in the upper left corner of the graph tells us that there is a moderate association between calls for service and maximum daily temperature]
 
 ```{r eval=TRUE, echo = FALSE, message = FALSE, warning= FALSE, fig.height = 6}
 
