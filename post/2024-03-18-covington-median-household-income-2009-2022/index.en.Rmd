@@ -1,0 +1,127 @@
+---
+title: "Covington Median Household Income"
+author: ''
+date: '2024-04-03'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: "2009-2022"
+image: "img/cov_median_income.png"
+---
+
+
+```{r setup, include=FALSE, echo = FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+library(gghighlight)
+library(scales)
+
+#Function to abbreviate dollar amounts and add symbol
+covdata_comprss <- function(tx, label = FALSE) { 
+  div <- findInterval(as.numeric(gsub("\\,", "", tx)), 
+                      c(0, 1e3, 1e6, 1e9, 1e12) )  # modify this if negative numbers are possible
+  if(label){
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 0), 
+          c("","K","M","B","T")[div], sep = "" )
+  }
+  else{
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 1), 
+          c("","K","M","B","T")[div], sep = "" )}
+}
+
+ky_place_med_inc <- readRDS("ky_places_med_income_09_22.rds")
+
+
+```
+
+
+
+Household income is defined as the total gross income before taxes that is received within a 12-month period by all members of a household, aged 15 or older, including spouses, their dependents, and non-relatives. Household income is a valuable measure of the relative economic well-being of a city.  This post looks briefly at the median household income in Covington, and other Kentucky cities of similar size, from 2009 to 2022.  Data comes from the American Community Survey (ACS) from the U.S. Census Bureau.
+
+The median household income in Covington in 2009 was $38.7 thousand.  By 2022, the median household income had grown to $53.8 thousand--an increase of $15.1 thousand.  Other Kentucky cities, including Bowling Green, Elizabethtown, Hopkinsville, Owensboro, and Richmond, also experienced growth in the median household income over the thirteen year period.    
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=6}
+
+comparison_places <- c("Covington|Richmond|Owensboro|Bowling|Elizabethtown|Hopkinsville")
+cov_place <- ky_place_med_inc |>
+  filter(grepl(comparison_places, NAME)) |>
+  mutate(NAME = str_remove(NAME, "\\scity,.*$"),
+         NAME = factor(NAME, levels = c("Covington", "Bowling Green", "Elizabethtown", 
+                                        "Hopkinsville", "Owensboro", "Richmond")),
+         year = as.Date(as.character(year), format = "%Y")) |>
+  rename("Median_Income" = "estimate",
+         "Median_Income_Adj." = "med_inc_adj") |>
+  select(GEOID, year, NAME, Median_Income, Median_Income_Adj.) |>
+  pivot_longer(cols = c('Median_Income', 'Median_Income_Adj.'),
+               names_to = 'type',
+               values_to = "income") |>
+  filter(type == "Median_Income") |>
+  as.data.frame()
+
+#chart labels  
+frmFirst <- cov_place |>
+  group_by(NAME)|>
+  slice(which.min(year))
+
+frmLast<- cov_place |>
+  group_by(NAME)|>
+  slice(which.max(year))
+
+first_last <- cbind(frmFirst, frmLast) |>
+  mutate(Diff = covdata_comprss(`income...10` - `income...5`))
+
+
+growth_labels <- as_labeller(c(
+  "Covington" = "Covington: +$15.1K",
+  "Bowling Green" = "Bowling Green: +$12.6K",
+  "Elizabethtown" = "Elizabethtown: $+12.2K",
+  "Hopkinsville" = "Hopkinsville: +$8K",
+  "Owensboro" = "Owensboro: +$16.5K",
+  "Richmond" = "Richmond: +$15.1K"))
+
+plot_labels <-  labs(x = "Year", 
+                     y = "", 
+                     title = "Median Household Income (unadjusted): 2009 - 2022",
+                     subtitle = "Kentucky Cities with 30K+ Population\n",
+                     caption = "Administration\nCity of Covington\nSource: US Census ACS | CovData | 2024")
+
+
+  cov_place_plot <- cov_place |>
+  ggplot(aes(x = year, y = income, color = NAME)) +
+  geom_line(lwd = 0.4, show.legend = FALSE) +
+    geom_point(show.legend = FALSE) +
+    geom_point(data = frmLast, aes(x = year, y = income),  shape = 21, fill = "white", size = 1.7, stroke = 1.7, show.legend = FALSE) +
+    geom_text(data = frmLast, aes(x = year, y = income, label = covdata_comprss(income)), size = 3.2, vjust = -1.5, hjust = 0.9, show.legend = FALSE) +
+    # first trading day - round mark, annotation above
+    geom_point(data = frmFirst, aes(x = year, y = income),  shape = 21, fill = "white", size = 1.7, stroke = 1.7, show.legend = FALSE) +
+    geom_text(data = frmFirst, aes(x = year, y = income, label = covdata_comprss(income)), size = 3.2, vjust = 2.5, hjust = -0.01,  show.legend = FALSE) +
+    covdata_color_d("Set25")+
+    scale_x_date(breaks = seq(ym("2009-01"), ym("2022-01"), by = "1 year"), date_labels = "%y")+
+  #gghighlight(NAME == "Covington city, Kentucky")+
+  scale_y_continuous(label=label_number(scale_cut = cut_short_scale()),
+                     limits = c(0, 70000), n.breaks = 8) +
+  facet_wrap(~NAME, labeller = growth_labels) +
+    plot_labels +
+  covdata_theme()
+
+ 
+
+ 
+covdata_plot(cov_place_plot, "cov.logo.blue")
+ 
+
+
+
+```
