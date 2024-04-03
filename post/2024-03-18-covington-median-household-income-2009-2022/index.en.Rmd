@@ -52,7 +52,7 @@ Household income is defined as the total gross income before taxes that is recei
 The median household income in Covington in 2009 was $38.7 thousand.  By 2022, the median household income had grown to $53.8 thousand--an increase of $15.1 thousand.  Other Kentucky cities, including Bowling Green, Elizabethtown, Hopkinsville, Owensboro, and Richmond, also experienced growth in the median household income over the thirteen year period.    
 
 
-```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=6, fig.width=9}
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE}
 
 comparison_places <- c("Covington|Richmond|Owensboro|Bowling|Elizabethtown|Hopkinsville")
 cov_place <- ky_place_med_inc |>
