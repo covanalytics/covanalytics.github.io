@@ -117,7 +117,9 @@ covdata_plot(yearly_bar, "cov.logo.blue")
 
 ```
 
-![](median_home_sales_23_neighborhood_google_map.png)
+![](median_home_sales_23_neighborhood_google_map_2.png)
+
+
 
 *(NOTE: Due to display challenges posed by Covington’s elongated vertical shape, South Covington is not listed on the map, although it is in the bar graph.)*  
 
