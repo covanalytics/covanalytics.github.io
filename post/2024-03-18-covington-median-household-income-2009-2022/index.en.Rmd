@@ -8,7 +8,7 @@ tags:
   - Development
 type: ''
 subtitle: "2009-2022"
-image: "img/cov_median_income.png"
+image: ""
 ---
 
 
