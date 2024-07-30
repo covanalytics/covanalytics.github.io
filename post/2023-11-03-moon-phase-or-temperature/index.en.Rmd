@@ -8,7 +8,7 @@ tags:
   - Police
 type: ''
 subtitle: "Influence on Daily Calls for Police Service"
-image: "img/moon_temp.png"
+image: ""
 ---
 
 There is a widely held belief that police are busier during a full moon.  Why do people believe this? Perhaps the gravitational forces of the full moon cause cyclic fluid shifts between body compartments and thereby trigger emotional disturbances leading to more aggressive and erratic behaviors.^[https://bmjopen.bmj.com/content/9/1/e022759] Or perhaps there is a scintilla of truth to the mythology of the ancient Greeks and Romans and humans actually turn into wolves during the full moon....or at least channel something wild within.

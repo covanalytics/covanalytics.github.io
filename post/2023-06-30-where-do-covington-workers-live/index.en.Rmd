@@ -8,7 +8,7 @@ tags:
   - Development
 type: ''
 subtitle: 'Longitudinal Employer-Household Dynamics Data'
-image: 'img/covjobs_home.png'
+image: ''
 ---
 
 

@@ -8,7 +8,7 @@ tags:
   - Administration
 type: ''
 subtitle: 'Approved Events, 2022'
-image: 'img/seps_graph.png'
+image: ''
 ---
 
 Any event (i.e. festival, concert, run/walk, art show, etc.) that uses, or will likely have a large impact on public or City-owned property, such as streets or parks, requires a [Special Event Permit Application](https://www.covingtonky.gov/Portals/covingtonky/Government/Departments/Administration/City%20Manager's%20Office/Special%20Event%20Permit/Documents/2023%20Special%20Event%20Permit%20Application_FILLABLE.pdf?ver=ez2s7d1-IV_MgBw16wBbKQ%3d%3d).  This is information that the City of Covington requires to ensure that everything goes smoothly and safely with the event.

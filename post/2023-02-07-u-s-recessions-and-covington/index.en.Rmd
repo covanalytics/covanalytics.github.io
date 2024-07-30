@@ -9,7 +9,7 @@ tags:
   - Administration
 type: ''
 subtitle: 'Covington Unemployment Rate: 1990-2022'
-image: 'img/cov_unemp.png'
+image: ''
 ---
 
 There have been four economic recessions in the United States since the early 1990s.  A recession is a significant, widespread, and prolonged downturn in economic activity, and is typically identified by two consecutive quarters of negative gross domestic product (GDP) growth.^[https://www.investopedia.com/terms/r/recession.asp]  One of the most noticeable effects of a recession is a rise in unemployment, which usually peaks long after the recession has begun and can last well into recovery.^[https://www.investopedia.com/ask/answers/032515/why-does-unemployment-tend-rise-during-recession.asp] Below is a brief description of the four recessions and the unemployment rate in Covington through these periods.  *Attention is not given to the underlying causes of each recession.*

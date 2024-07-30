@@ -8,7 +8,7 @@ tags:
   - Website
 type: ''
 subtitle: 'Returning Visits on Mobile Device'
-image: 'img/state_city_mobile.jpg'
+image: ''
 ---
 
 The website for the [City of Covington](https://www.covingtonky.gov/) is visited by people from all over the United States, and world.  With the help of [Google Analytics](https://analytics.withgoogle.com/), the City is able to monitor all of the website pages and gain insights into visitor activity, such as the number of visitors, most viewed pages, device types, and much more.

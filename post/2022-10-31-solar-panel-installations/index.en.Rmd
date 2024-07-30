@@ -8,7 +8,7 @@ tags:
   - Development
 type: ''
 subtitle: 'As of October, 2022'
-image: 'img/solar_change.jpg'
+image: ''
 ---
 
 The [Planning and Development Services of Kenton County](https://www.pdskc.org/) (PDS) provides the City of Covington with data containing details on every building permit issued in Covington, including the type of work planned for a property and how much the work is expected to cost.  Figure 1 shows that the installation of solar panels is a particular property enhancement that has become increasingly popular in recent years.  In the last two years alone, interest in solar panels has jumped considerably, with owners of 74 properties in Covington completing the necessary paperwork to have solar panels installed---work valued at an estimated $1.6 million.

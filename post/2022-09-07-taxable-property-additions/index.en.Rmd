@@ -9,7 +9,7 @@ tags:
   - Finance
 type: ''
 subtitle: 'Residential/Commerical Property'
-image: 'img/taxable-additions.jpg'
+image: ''
 
 ---
 

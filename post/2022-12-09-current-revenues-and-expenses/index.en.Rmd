@@ -8,7 +8,7 @@ tags:
   - Finance
 type: ''
 subtitle: 'Annual Comprehensive Financial Report, 2004-2021'
-image: 'img/revenue-expenses.jpg'
+image: ''
 ---
 
 
