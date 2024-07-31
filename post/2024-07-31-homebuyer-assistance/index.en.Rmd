@@ -11,6 +11,9 @@ subtitle: 'Helping families achieve the American Dream'
 image: ''
 ---
 
+
+
+
 ```{r setup, include=FALSE, echo = FALSE}
 
 library("tidyverse")
@@ -59,7 +62,7 @@ The attached chart and map show how the loans have been spread across Covington�
  
 Under the program’s current format, the money comes in the form of a 10-year, 0 percent interest loan. You must meet income and credit requirements and there is a maximum price for the house.
  
-To learn more, check out the application portal and guidelines under “Homebuyer Assistance Loans” on the [City’s Neighborhood Services webpage](https://www.covingtonky.gov/government/departments/neighborhood-services/federal-grants). You can also contact CDBG/HOME Program Coordinator John David Hammons at [jhammons@covingtonky.gov](jhammons@covingtonky.gov) or (859) 292-2105.
+To learn more, check out the application portal and guidelines under “Homebuyer Assistance Loans” on the [City’s Neighborhood Services webpage](https://www.covingtonky.gov/government/departments/neighborhood-services/federal-grants). You can also contact CDBG/HOME Program Coordinator John David Hammons at [jhammons@covingtonky.gov](mailto:jhammons@covingtonky.gov) or (859) 292-2105.
 
 
 
