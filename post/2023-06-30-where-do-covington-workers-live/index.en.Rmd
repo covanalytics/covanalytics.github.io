@@ -88,7 +88,7 @@ grid::grid.raster(logo, x = 0.13, y = 0.01, just = c('left', 'bottom'), width = 
 
 Within the Cincinnati-Wilmington-Maysville CSA there are 201 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau where Covington workers lived in 2020.  These can be thought of as municipalities, cities, towns, villages, and boroughs. People living in these 201 Places accounted for 13,120 (71%) of the 18,378 jobs in Covington in 2020.  The top 10 Places of home residence for people who worked in Covington is displayed in the graph below.  Covington was the main Place of home residence for Covington workers with 16% of the jobs within the CSA, followed by Cincinnati (11%) and Independence (7%) in the top three. 
 
-```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
+```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5, warning=FALSE, message=FALSE}
 
 plot_labels <-  labs(x = "Jobs (%)", 
                      y = "Jobs (%)", 

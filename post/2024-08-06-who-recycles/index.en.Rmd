@@ -61,7 +61,6 @@ For information on recycling in The Cov, how to sign up, and what can be recycle
 
 
 
-
 ```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=6, fig.width=7}
 
 recy <- readRDS("recycling_accounts.rds")

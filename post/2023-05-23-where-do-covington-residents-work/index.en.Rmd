@@ -1,13 +1,13 @@
 ---
-title: Where Do Covington Residents Work?
+title: "Where Do Covington Residents Work?"
 author: ''
 date: '2023-05-23'
 slug: []
 categories: []
-tags:
+tags: 
   - Development
 type: ''
-subtitle: 'Longitudinal Employer-Household Dynamics Data'
+subtitle: Longitudinal Employer-Household Dynamics Data
 image: ''
 ---
 
@@ -19,7 +19,7 @@ This post looks briefly at **where Covington residents work** within the [Cincin
 
 
 
-```{r setup, include=FALSE, echo = FALSE}
+```{r setup, include=FALSE, echo = FALSE, warning = FALSE}
 library("tidyverse")
 library("lubridate")
 library("plotly")
@@ -87,7 +87,7 @@ grid::grid.raster(logo, x = 0.13, y = 0.01, just = c('left', 'bottom'), width = 
 
 Within the Cincinnati-Wilmington-Maysville CSA there are 165 [Places](https://www2.census.gov/geo/pdfs/reference/GARM/Ch9GARM.pdf) defined by the U.S. Census Bureau where Covington residents worked in 2020.  These can be thought of as municipalities, cities, towns, villages, and boroughs. Within these 165 Places, Covington residents held 13,271 jobs in 2020.  The top 10 Places were Covington residents had a job is displayed in the graph below.  Cincinnati was the main Place of employment for Covington residents with 20% of the jobs within the CSA, followed by Covington (16%) and Florence (11%) in the top three. 
 
-```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5}
+```{r eval=TRUE, echo = FALSE, fig.width= 6, fig.height=5, warning=FALSE, message=FALSE}
 
 plot_labels <-  labs(x = "Jobs (%)", 
                      y = "Jobs (%)", 
