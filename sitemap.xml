@@ -3,22 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/development/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/finance/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2024-08-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2024-08-16-revenue-furnace/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/recycling/</loc>
     <lastmod>2024-08-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2024-08-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/post/2024-08-06-who-recycles/</loc>
     <lastmod>2024-08-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/development/</loc>
-    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2024-07-31-homebuyer-assistance/</loc>
     <lastmod>2024-07-31T00:00:00+00:00</lastmod>
@@ -63,9 +69,6 @@
     <lastmod>2023-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2022-12-09-current-revenues-and-expenses/</loc>
-    <lastmod>2022-12-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/finance/</loc>
     <lastmod>2022-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2022-10-31-solar-panel-installations/</loc>
