@@ -7,7 +7,7 @@ categories: []
 tags:
   - Development
 type: ''
-subtitle: '$170K spread throught The Cov'
+subtitle: '$170K spread throughout The Cov'
 image: ''
 ---
 
