@@ -1,0 +1,125 @@
+---
+title: "Grants Helped 14 Neighborhoods"
+author: ''
+date: '2024-09-16'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: '$170K spread throught The Cov'
+image: ''
+---
+
+```{r setup, include=FALSE, echo = FALSE, warning = FALSE, message=FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+library(gghighlight)
+library(scales)
+library(tidyquant)
+library(glue)
+
+#Function to abbreviate dollar amounts and add symbol
+covdata_comprss <- function(tx, label = FALSE) { 
+  div <- findInterval(as.numeric(gsub("\\,", "", tx)), 
+                      c(0, 1e3, 1e6, 1e9, 1e12) )  # modify this if negative numbers are possible
+  if(label){
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 0), 
+          c("","K","M","B","T")[div], sep = "" )
+  }
+  else{
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 1), 
+          c("","K","M","B","T")[div], sep = "" )}
+}
+
+dash_bld_permits <- readRDS("dash_bld_permits_for_google_maps.rds")
+neighborhoods <- readRDS("neighborhoods.rds")
+prj_list <- read.csv("project_list.csv", header = TRUE)
+map_testing_this <- readRDS("north_covington_google_map.rds")
+
+```
+
+
+When neighborhoods have a plan and the desire to improve their communities, they turn to the City for financial help.
+
+Covington leaders created the Neighborhood Grant Program in 2019 to enhance the physical appearance of small areas while enhancing the sense of social cohesion through shared projects.
+
+Since then, the City has distributed about $170,000 for 37 projects in at least 14 neighborhoods (plus a cemetery/arboretum), including things like tree planting, flower pots, banners, dog-waste stations, festivals, water fountains, signs and benches.
+
+This map shows the distribution of those grants by neighborhood.
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=8, fig.width=10}
+
+
+north_cov <- dash_bld_permits %>%
+  filter(!(grepl("South Covington", Neighborhood)) & !is.na(Neighborhood))
+pidn_map <- north_cov
+
+lat_avg <- median(pidn_map$lat)- 0.02
+lon_avg <- median(pidn_map$lon)- 0.008
+
+max_lon <- max(pidn_map$lon)+ 0.001
+min_lon <- min(pidn_map$lon)- 0.001
+
+max_lat <- max(pidn_map$lat)+ 0.001
+min_lat <- min(pidn_map$lat)- 0.001
+
+
+neigh_mappable <- neighborhoods %>%
+  left_join(prj_list, by = "NbhdLabel") |>
+  select(Neigh_Grp, Grants) |>
+  group_by(Neigh_Grp) |>
+  summarize(Grants = sum(Grants)) |>
+  filter(Grants > 0) |>
+  mutate(Label = case_when(grepl("Riverside", Neigh_Grp) ~ "LR",
+                           grepl("Old", Neigh_Grp) ~ "OT/MG",
+                           grepl("Seminary", Neigh_Grp) ~ "SmSq",
+                           .default = as.character(Neigh_Grp))) |>
+  rename("geometry"="Shape",
+         "Neighborhood"="Neigh_Grp")
+
+
+
+ neighborhood_labels <- labs(title = "\nNeighborhood Grant Program",
+       subtitle = "Projects Awarded, 2019-2023\n",
+       caption = "\nCity of Covington\nNeighborhood Services | CovData | Google Maps",
+       x = "", y = "")  
+
+
+
+map_test <- map_testing_this +
+  geom_sf(data = neigh_mappable, aes(fill = Neighborhood), alpha = 0.6,  inherit.aes = FALSE, show.legend = TRUE)+
+  scale_y_continuous(limits = c(min_lat, max_lat), expand = c(0, 0)) +
+  #scale_x_continuous(limits = c(min_lon, max_lon), expand = c(0, 0)) +
+  #scale_color_tq() +
+  #covdata_fill_d("Set25") +
+  #scale_fill_tq() +
+  scale_fill_manual(values = c("dodgerblue2", "#E31A1C", "green4", "#6A3D9A", "#b35900",  "maroon", "gold1", "darkblue", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F", "gray70", "khaki2",
+            "maroon", "orchid1", "deeppink1", "blue1", "steelblue4", "darkturquoise", "green1",
+            "yellow4", "yellow3", "darkorange4", "brown"))+
+  geom_sf_text(data = neigh_mappable, aes(label = Grants),
+    size = 3.0,
+    color = "black",
+    inherit.aes = FALSE)+
+  
+ neighborhood_labels +
+  theme_tq() 
+
+
+map_test
+
+
+
+
+
+```
