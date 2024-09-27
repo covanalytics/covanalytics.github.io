@@ -1,0 +1,136 @@
+---
+title: "Grants for urgent home repairs keep vulnerable Covington families in their homes"
+author: ''
+date: '2024-09-27'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: ''
+image: ''
+---
+
+```{r setup, include=FALSE, echo = FALSE, warning = FALSE, message=FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+library(gghighlight)
+library(scales)
+library(tidyquant)
+library(glue)
+
+#Function to abbreviate dollar amounts and add symbol
+covdata_comprss <- function(tx, label = FALSE) { 
+  div <- findInterval(as.numeric(gsub("\\,", "", tx)), 
+                      c(0, 1e3, 1e6, 1e9, 1e12) )  # modify this if negative numbers are possible
+  if(label){
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 0), 
+          c("","K","M","B","T")[div], sep = "" )
+  }
+  else{
+    paste(round( as.numeric(gsub("\\,","",tx))/10^(3*(div-1)), 1), 
+          c("","K","M","B","T")[div], sep = "" )}
+}
+
+
+neighborhoods <- readRDS("neighborhoods.rds")
+
+# CDBG Affrd. Housing Program
+cdbg_assist <- readRDS("PY2014_present_CDBG_addresses.rds") |>
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) |>
+  st_join(neighborhoods, join = st_within) |> 
+  #filter(grepl("Latonia", NbhdLabel))|>
+  mutate(Program = "CDBG Affordable Housing Repair")
+
+google_map <- readRDS("covington_google_map_1.rds")
+
+```
+
+
+More than 130 times in the last 10 years, the City of Covington has helped vulnerable low-income homeowners – including the elderly, veterans, and those with disabilities – fix dangerous and unsafe conditions that could drive them from their homes.
+ 
+In its current setup, the federally funded Homeowner Repair Program offers grants of up to $10,000 to fix owner-occupied, single-family homes in any area of Covington. 
+ 
+Eligible repairs include certain electrical problems, plumbing issues (including broken water heaters and leaking pipes), HVAC problems (including carbon monoxide leaks and malfunctioning AC units/furnaces), roofs (plus gutters and downspouts), and accessibility modifications (like wheelchair ramps and handrails).
+ 
+This map shows where grants have been awarded.
+ 
+The homeowner is responsible for finding and selecting a contractor for a repair. City staff can assist by referring qualified contractors. Payment is made by the City directly to the contractor or repair person. 
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.height=10, fig.width=10}
+
+
+### CDBG loans awarded
+cdbg_loans_granted <- cdbg_assist |>
+  count(NbhdLabel, Program, name = "Loans/Grants Completed") |>
+  st_drop_geometry() |>
+  as.data.frame()
+
+neigh_mappable <- neighborhoods %>%
+  left_join(cdbg_loans_granted, by = "NbhdLabel") |>
+  rename("geometry"="Shape",
+         "Neighborhood"="NbhdLabel") |>
+  select(Neighborhood, `Loans/Grants Completed`) |>
+  filter(!is.na(`Loans/Grants Completed`)) |>
+  mutate(Location = ifelse(grepl("South", Neighborhood), "South Covington", "North Covington"))
+
+
+ neighborhood_labels <- labs(title = "\nHomeowner Repair Program",
+       subtitle = "Grants Awarded, 2014-2023\n",
+       caption = "\nCity of Covington\nNeighborhood Services | CovData | Google Maps",
+       x = "", y = "")  
+ 
+
+google_map <- readRDS("covington_google_map_1.rds")
+cdbg_map <- google_map +  
+  geom_sf(data = neigh_mappable, aes(fill = Neighborhood), alpha = 0.6,  inherit.aes = FALSE)+
+  #scale_y_continuous(limits = c(min_lat, max_lat), expand = c(0, 0)) +
+  #scale_x_continuous(limits = c(min_lon+0.2, max_lon+0.2), expand = c(0, 0)) +
+  #scale_color_tq() +
+  #covdata_fill_d("Set25") +
+  #scale_fill_tq() +
+  scale_fill_manual(values = c("dodgerblue2", "#E31A1C", "green4", "#6A3D9A", "#b35900",  "maroon", "gold1", "#00ffff", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F", "gray70", "khaki2",
+            "maroon", "orchid1", "deeppink1", "blue1", "steelblue4", "darkturquoise", "green1",
+            "yellow4", "yellow3", "darkorange4", "brown"))+
+  geom_sf_text(data = neigh_mappable, aes(label = `Loans/Grants Completed`),
+    size = 2.5,
+    color = "black",
+    inherit.aes = FALSE) +
+  
+ neighborhood_labels +
+  theme_tq() +
+  ggthemes::theme_map() + 
+  theme(plot.title = element_text(size = 11, face = "bold"),
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.position = c(0.01, 0.01),
+        panel.border = element_rect(colour = "black", fill = NA, size = 0.3))
+  
+
+
+cdbg_map
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
