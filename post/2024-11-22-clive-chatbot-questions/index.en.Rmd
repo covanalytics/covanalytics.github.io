@@ -40,14 +40,13 @@ word_pairs <- readRDS("chatbot_word_pairs_top_10_clive.rds")
 ```
 
 
-![](turkeyday-thanksgiving.gif)
+
 
 
 "Clive", the chatbot featured on Economic Development's website, was launched on November 1st, 2024 for the purpose of quickly answering questions related to everything from how to open a business in Covington to finding available commercial property to incentives to required permits.  In the first three weeks of activity the chatbot has had 101 conversations and answered nearly 300 questions from the public. 
 
 This chart shows the top 10 word pairs from the questions that Clive has answered.  The pairs are words that occur in consecutive sequence in a question. The majority of the questions have been about the Covington Central Riverfront (CCR) project, zoning permits, and available incentives.
 
-*P.S., Clive wishes everyone a Happy Friendsgiving!*
 
 ```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.width = 7, fig.height = 6}
 
@@ -85,6 +84,9 @@ chat_bigram_plot
 
 ```
 
+*P.S., Clive wishes everyone a Happy Friendsgiving!*
+
+![](turkeyday-thanksgiving.gif)
 
 
 
