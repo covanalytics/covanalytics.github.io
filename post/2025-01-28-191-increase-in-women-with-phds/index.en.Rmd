@@ -1,0 +1,117 @@
+---
+title: "191% increase in women with PhDs"
+author: ''
+date: '2025-01-28'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: ''
+image: ''
+---
+
+
+```{r setup, include=FALSE, echo = FALSE, warning = FALSE, message=FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+library(gghighlight)
+library(scales)
+library(tidyquant)
+library(glue)
+library(widyr)
+library(tidytext)
+library(ggimage)
+
+
+ky_place_dr <- readRDS("ky_places_ed_attnment_09_23.rds")
+
+
+```
+
+
+Along with increases in household income in The Cov over the last few years have come similar improvements in post-secondary educational attainment.
+ 
+For example, between 2009 and 2023, the percent of Covington residents age 25 and older who have earned at least an associate’s degree from a college or university increased from 22 percent to 32 percent, according the American Community Survey. 
+ 
+Drill down even further and you find this interesting fact, as shown in the accompanying chart: The number of women living in Covington with doctoral degrees increased from 59 in 2021 to 172 in 2023. This is a 191 percent increase in just two years. (And that number does not include women who have earned a Doctor of Jurisprudence, or JD degree, i.e. law school degree.)
+ 
+We believe that fact is both a sign of Covington’s increasing sophistication … AND an impetus for further economic growth and a higher quality of life.
+ 
+Why? Because there is a strong link between a highly educated and skilled workforce and the ability to attract businesses and new jobs, which in turn leads to higher household income and more tax revenue that the City can invest in services and infrastructure in our neighborhoods.
+
+
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.width = 8, fig.height = 6}
+
+
+
+
+cov_place_ed <- ky_place_dr |>
+  filter(NAME == "Covington city, Kentucky") |>
+  filter(variable %in% c("female_doctorate", "male_doctorate")) |>
+  mutate(NAME = str_remove(NAME, "\\scity,.*$"),
+         year = as.Date(as.character(year), format = "%Y")) |>
+  rename("Population" = "value",
+         "Group" = "variable") |>
+  select(GEOID, year, NAME, Group, Population) |>
+  as.data.frame()
+  
+frmFirst <- cov_place_ed |>
+  group_by(Group)|>
+  slice(which.min(year))
+
+frmLast<- cov_place_ed |>
+  group_by(Group)|>
+  slice(which.max(year))
+
+
+plot_labels <-  labs(x = "\nYear", 
+                     y = "", 
+                     title = "Covington Population with Doctorate Degree",
+                     subtitle = "Population Age 25+: 2009 - 2023\n",
+                     caption = "Administration\nCity of Covington\nSource: US Census ACS | CovData | 2025")
+
+
+cov_place_plot <- cov_place_ed |>
+  ggplot(aes(x = year, y = Population, color = Group)) +
+  geom_line(lwd = 0.7, show.legend = TRUE) +
+    geom_point(show.legend = TRUE) +
+    geom_point(data = frmLast, aes(x = year, y = Population, color = Group), 
+               shape = 21, fill = "white", size = 1.7, stroke = 1.7, show.legend = FALSE) +
+    geom_text(data = frmLast, aes(x = year, y = Population, color = Group, label = Population), 
+              size = 3.2, vjust = -1.0, hjust = 0.2, show.legend = FALSE) +
+    # first trading day - round mark, annotation above
+    geom_point(data = frmFirst, aes(x = year, y = Population, color = Group),  
+               shape = 21, fill = "white", size = 1.7, stroke = 1.7, show.legend = FALSE) +
+   
+    covdata_color_d("Set25")+
+    scale_x_date(breaks = seq(ym("2009-01"), ym("2023-01"), by = "1 year"), date_labels = "%y")+
+ 
+  scale_y_continuous(label=label_number(scale_cut = cut_short_scale()),
+                     limits = c(0, 240), n.breaks = 10) +
+
+    plot_labels +
+  
+  theme_tq() 
+
+
+covdata_plot(cov_place_plot, "cov.logo.blue")
+
+
+
+
+
+
+```
+

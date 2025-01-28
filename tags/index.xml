@@ -7,22 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</managingEditor>
     <webMaster>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</webMaster>
-    <lastBuildDate>Fri, 22 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Development</title>
+      <link>/tags/development/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
+      <guid>/tags/development/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Website</title>
       <link>/tags/website/</link>
       <pubDate>Fri, 22 Nov 2024 00:00:00 +0000</pubDate>
       <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
       <guid>/tags/website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>/tags/development/</link>
-      <pubDate>Fri, 25 Oct 2024 00:00:00 +0000</pubDate>
-      <author>covanalytics@covingtonky.gov?subject=CovData%20Short%20Idea</author>
-      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
