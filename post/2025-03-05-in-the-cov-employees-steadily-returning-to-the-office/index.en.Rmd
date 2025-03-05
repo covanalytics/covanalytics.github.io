@@ -1,0 +1,92 @@
+---
+title: "In the Cov, employees steadily returning to the office"
+author: ''
+date: '2025-03-05'
+slug: []
+categories: []
+tags:
+  - Development
+type: ''
+subtitle: ''
+image: ''
+---
+
+
+```{r setup, include=FALSE, echo = FALSE, warning = FALSE, message=FALSE}
+
+library("tidyverse")
+library("lubridate")
+library("plotly")
+library(readxl)
+library(covdataplot)
+library(magick)
+library(extrafont)
+library(sf)
+library(ggmap)
+library(gganimate)
+library(gghighlight)
+library(scales)
+library(tidyquant)
+library(glue)
+library(widyr)
+library(tidytext)
+library(ggimage)
+
+
+employees <- read.csv("employee_visits_6a_6p_weekdays_150min.csv", header = TRUE) 
+
+
+```
+
+During the onset of the Covid-19 pandemic in 2020, many workplaces utilized work-from-home strategies as a way to protect employees from an infectious virus about which little was known. 
+ 
+In the immediate years since, the work-from-home philosophy lingered. Little by little, however, at least in Covington, the number of employees in the workplace continue to rise, though not yet to pre-pandemic levels.
+ 
+The chart above shows the year-by-year average of daily foot traffic from Placer.ai software tied to “work locations,” not only downtown but around the city.
+
+
+```{r eval=TRUE, warning = FALSE, echo = FALSE, message = FALSE, fig.width = 10, fig.height = 6}
+
+
+## display daily average
+plot_labels_a <-  labs(x = "\nDate", 
+       y = "Employee Visits\n", 
+       title = "Daily Average Employee Foot Traffic in Covington",
+       subtitle = "Visits between 6am and 6pm, Monday-Friday for at least 150 minutes\n",
+       caption = "\nAdministration\nCity of Covington\nSource: Placer.ai | CovData | 2025")
+  
+employee_visits <- employees |>
+  mutate_at(vars(date), list(mdy)) |>
+  mutate(Period = case_when(between(date, as.Date('2017-01-01'), as.Date("2020-03-15"))~"Before COVID",
+                            between(date, as.Date('2020-03-16'), as.Date("2021-06-10"))~"COVID Restrictions",
+                            between(date, as.Date('2021-06-11'), as.Date("2025-01-31"))~"COVID Restrictions Ended"))
+
+employee_visit_count <- employee_visits |>
+  mutate(year = as.character(year(date))) |>
+  filter(employees > 0, !year %in% 2025) |>
+  count(year, Period, wt = mean(employees), name = "Employee Visits") |>
+  ggplot(aes(year, `Employee Visits`, fill = Period))+
+  geom_bar(stat = 'identity', position = "dodge")+
+  #bar_plot_labels +
+  scale_fill_manual(values = c("#0047ba", "#D73027", "#33A02C")) +
+  #covdata_fill_d("Paired")+
+  scale_y_continuous(limits = c(0, 30000),
+                     label=scales::label_number_si(),
+                     expand = expansion(mult = c(0, .1)))+
+  
+  geom_text(aes(label = scales::comma(`Employee Visits`)), vjust = -0.5, position = position_dodge(0.9),
+            size = 3.5)+
+  plot_labels_a +
+  
+  theme_tq() +
+  theme(panel.grid.major.x = element_line(color = "white",
+                                          size = 0,
+                                          linetype = 2))
+  #facet_wrap(~ZONE_ID)
+
+covdata_plot(employee_visit_count, "cov.logo.blue")
+
+
+
+```
+
